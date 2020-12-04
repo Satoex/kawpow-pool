@@ -1,0 +1,100 @@
+{
+    "enabled": true,
+    "coin": "ravencoin.json",
+
+    "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj",
+    
+    "donateaddress": "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz",
+
+    "rewardRecipients": {
+        "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz": 0.5,
+        "Ta26x9axaDQWaV2bt2z8Dk3R3dN7gHw9b6": 0
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "schema": "PROP",
+        "paymentInterval": 300,
+        "minimumPayment": 0.25,
+        "maxBlocksPerPayment": 10,
+        "minConf": 30,
+        "coinPrecision": 8,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 8766,
+            "user": "user1",
+            "password": "pass1"
+        }
+    },
+
+    "ports": {
+	"10008": {
+            "diff": 2,
+    	    "varDiff": {
+    	        "minDiff": 1,
+    	        "maxDiff": 16,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    		    "maxJump": 25
+    	    }
+        },
+        "10032": {
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 16,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		        "maxJump": 25
+            }
+        },
+        "10256": {
+		    "varDiff": {
+    			"minDiff": 1000,
+    			"maxDiff": 9000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    			"maxJump": 50
+    		}
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 8766,
+            "user": "user1",
+            "password": "pass1"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "ltc",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    },
+
+    "mongoMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "user": "",
+        "pass": "",
+        "database": "ltc",
+        "authMechanism": "DEFAULT"
+    }
+
+}
