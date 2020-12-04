@@ -1,0 +1,17 @@
+{
+    "name": "ravencoin",    
+    "symbol": "RVN",    
+    "algorithm": "kawpow",
+    
+    "wallet": "https://github.com/xagau/Placeholders-X16R",
+
+    "explorer":"https://rvn.easyxpool.tk/",
+    
+    "explorerGetBlockJSON": "http://rvnhodl.com/api/getrawtransaction?decrypt=1&txid=",
+    "explorerGetBlock": "http://rvnhodl.com/block/",
+    "explorerGetTX": "http://rvnhodl.com/tx/",
+    
+    "blockTime": 60,
+    "blockChange": 1
+    
+}

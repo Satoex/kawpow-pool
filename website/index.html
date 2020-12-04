@@ -1,0 +1,558 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>   
+    
+		<!-- LeshaCat: We now need to decide if we are currently SSL and then if not and forcing SSL, redirect to SSL port. -->
+		<!--<script type="text/javascript" >
+		if ((it.portalConfig.website.sslforced) & (location.protocol === 'http:')) {
+		    // similar behavior as clicking on a link
+			window.location.href = "https://{{=it.portalConfig.website.stratumHost}}:{{=it.portalConfig.website.sslport}}/";
+		}
+		</script>-->
+		<!-- LeshaCat: We now need to decide if we are currently SSL and then if not and forcing SSL, redirect to SSL port. -->    
+    
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        
+        
+        <!-- Page Description -->
+			{{ if ((it.portalConfig.pagedesc !== "undefined") & (it.portalConfig.pagedesc !== "")) { }}
+				<meta name="description" content="{{=it.portalConfig.pagedesc}}" />
+			{{ } else { }}
+				<meta name="description" content="An EasyNOMP cryptocurrency mining pool - https://github.com/leshacat/EasyNOMP" />    
+			{{ } }}
+			
+        
+        <!-- Page Keywords -->
+			{{ if ((it.portalConfig.pagekeywds !== "undefined") & (it.portalConfig.pagekeywds !== "")) { }}
+				<meta name="keywords" content="{{=it.portalConfig.pagekeywds}}" />
+			{{ } else { }}
+				<meta name="keywords" content="EasyNOMP,NOMP,node-open-mining-portal,pool,mining pool, mining, cryptocurrency, crypto, bitcoin, btc" />
+			{{ } }}
+			
+        
+            <!-- Page Author -->
+			{{ if ((it.portalConfig.pageauthor !== "undefined") & (it.portalConfig.pageauthor !== "")) { }}
+				<meta name="author" content="root" />
+			{{ } else { }}
+				<meta name="author" content="root" />   
+			{{ } }}
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+			<!-- Page Title -->
+			{{ if ((it.portalConfig.pagetitle !== "undefined") & (it.portalConfig.pagetitle !== "")) { }}
+				<title>{{=it.portalConfig.pagetitle}}</title>
+			{{ } else { }}
+				<title>EasyNOMP Mining Pool - https://github.com/leshacat/EasyNOMP</title>	    
+			{{ } }}
+	    
+	    
+        <link rel="icon" type="image/png" href="/static/img/favicon.png" />
+        
+        
+
+        <!-- fonts n styles -->
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' crossorigin="anonymous" />        
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossorigin="anonymous" />
+              
+        
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" crossorigin="anonymous" />
+        
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css" crossorigin="anonymous" />-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css" crossorigin="anonymous" />
+        
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" crossorigin="anonymous" />-->
+        
+        
+
+        <!-- bootstrap stoof -->
+        <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        
+        
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+        
+        <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+
+        <!-- Charts n such -->
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" crossorigin="anonymous"></script>
+        
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael.js" crossorigin="anonymous"></script>
+        
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/justgage/1.3.1/justgage.js" crossorigin="anonymous"></script>-->
+        <script src="/static/justgage.js"></script>
+
+
+
+        <!-- the scrieeeepts -->
+        <script src="/static/main.js"></script>
+        
+        <script src="/static/stat_tracker.js"></script>
+        
+        {{=it.matomoCode}}        
+        
+    </head>
+    
+    <body>
+    
+        {{=it.livezillaCode}}    
+    
+        <header>
+            <nav id="topNavBar" class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap px-0" style="height: 40px;">
+		    
+					{{ if ((it.portalConfig.poollogo !== "undefined") & (it.portalConfig.poollogo !== "")) { }}
+						<span style="font-size: 18px; color: white;"><img src='{{=it.portalConfig.poollogo}}' height="30px" width="30px" />&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
+					{{ } else { }}
+						<span style="font-size: 18px; color: white;">&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
+					{{ } }}
+		    
+                    <span style="font-size: 10px; color: white;">Powered by <a href="https://github.com/EasyX-Community/EasyNOMP" target="_blank">EasyX-Community/EasyNOMP</a></span>
+                    <span style="font-size: 16px; color: white;"><i>{{=it.portalConfig.discordtwitterfacebook}}&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
+            </nav>
+        </header>
+        <style>
+            
+            #wrapper {
+                padding-left: 40px;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled {
+                padding-left: 250px;
+            }
+
+            #sidebar-wrapper {
+              overflow-x: hidden;
+                z-index: 1000;
+                position: fixed;
+                left: 250px;
+                width: 44px;
+                height: 100%;
+                margin-left: -250px;
+                overflow-y: auto;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                width: 250px;
+            }
+
+            #page-content-wrapper {
+                width: 100%;
+                position: absolute;
+                padding: 15px;
+            }
+
+            #wrapper.toggled #page-content-wrapper {
+                position: absolute;
+                margin-right: -250px;
+            }
+
+
+            /* Sidebar Styles */
+
+            .sidebar-nav {
+                position: absolute;
+                top: 0;
+                width: 250px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .sidebar-nav li {
+                line-height: 40px;
+            }
+
+            .sidebar-nav li a {
+                display: block;
+                text-decoration: none;
+                color: #f0f0f0;
+            }
+
+            .sidebar-nav li a:hover {
+                text-decoration: none;
+                color: #fff;
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .sidebar-nav li a:active,
+            .sidebar-nav li a:focus {
+                text-decoration: none;
+            }
+
+            .sidebar-nav>.sidebar-brand {
+                height: 65px;
+                font-size: 18px;
+                line-height: 60px;
+            }
+
+            .sidebar-nav>.sidebar-brand a {
+                color: #999999;
+            }
+
+            .sidebar-nav>.sidebar-brand a:hover {
+                color: #fff;
+                background: none;
+            }
+
+            .sidebar-icon {
+              vertical-align: middle;
+              align-content: center;
+              text-align: center;
+              font-size: 25px;
+              padding-left: 7.5px;
+              padding-right: 7.5px;
+            }
+
+            @media(min-width:768px) {
+                #wrapper {
+                    padding-left: 40px;
+                }
+                #wrapper.toggled {
+                    padding-left: 250px;
+                }
+                #sidebar-wrapper {
+                    width: 44px;
+                }
+                #wrapper.toggled #sidebar-wrapper {
+                    width: 250px;
+                }
+                #page-content-wrapper {
+                    padding: 20px;
+                    position: relative;
+                }
+                #wrapper.toggled #page-content-wrapper {
+                    position: relative;
+                    margin-right: 0;
+                }
+            }
+            footer{
+                text-align: center;
+                color: #b3b3b3;
+                text-decoration: none;
+                font-size: 0.8em;
+                padding: 15px;
+                line-height: 24px;
+            }
+
+            footer a{
+                color: #1AC4BA;
+                text-decoration: none;
+            }
+
+            footer iframe{
+                vertical-align: middle;
+            }
+
+            .footer_container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        </style>
+        <div id="wrapper">
+        
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper" class="bg-dark toggled">
+                <ul class="sidebar-nav" style="margin-top: 40px;">
+                    <li>
+                        <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars sidebar-icon"></i>&nbsp;&nbsp;Toggle Menu</a>
+                    </li>
+                           
+                                   
+                   <li>
+                     <a href="/news">
+                         <i class="fas fa-newspaper sidebar-icon"></i>&nbsp;News
+                     </a>
+                   </li>
+                   
+                         
+                                 
+                   <li>
+                     <a href="/getting_started"><i class="fa fa-user-plus sidebar-icon"></i>Add Miner</a>
+                   </li>
+                   
+                    <li>
+                        <a href="/dashboard"><i class="fas fa-tachometer-alt sidebar-icon"></i>&nbsp;Dashboard</a>
+                    </li>
+		            
+                   <li><!-- Link with dropdown items -->
+                     <a class="sidebar-link" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-swimmer sidebar-icon"></i>&nbsp;Pools</a>
+                     <ul class="collapse list-unstyled" id="homeSubmenu">
+
+                        <li>
+                           <a href="/pools">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-swimming-pool sidebar-icon"></i>All Pools </a>
+                        </li>                     
+
+                        {{ for(var pool in it.stats.pools) { }}
+                        <li>
+
+                            {{ var total = 0.0; }}
+                    		{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+            				{{ for (var r in rewardRecipients) { }}
+                				{{ total += rewardRecipients[r]; }}
+                			{{ } }}                       
+                        
+            			     <a class="bg-dark text-light pl-3" href="/stats/{{=it.stats.pools[pool].name}}">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} ({{=total}}% fee)</a>
+            			     
+            			</li>
+                        {{ } }}
+                        
+                       <p></p>
+                       
+                     </ul>                   
+                     
+                   </li>
+                    
+                    <li>
+		               <a href="/workers"><i class="fa fa-users sidebar-icon"></i>&nbsp;Workers</a>
+		            </li>
+                   
+                    
+                   <li>
+                     <a href="/blocks">
+                         <i class="fas fa-donate sidebar-icon"></i>&nbsp;Payments
+                       </a>
+                   </li>
+                           
+                   <li><!-- Link with dropdown items -->
+                     <a class="sidebar-link" href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false"><i class="fas fa-cube sidebar-icon"></i>&nbsp;Block Explorers</a>
+                     <ul class="collapse list-unstyled" id="homeSubmenu2">
+                                             
+                        {{ for(var pool in it.stats.pools) { }}
+                        <li>
+            			     <a class="bg-dark text-light pl-3" href="{{=it.poolConfigs[pool].coin.explorer}}" target="_blank">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a>
+            			</li>
+                        {{ } }}                  
+                                             
+                        <p></p>
+                       
+                     </ul>                   
+                     
+                   </li> 
+                   
+                   
+                   <li><!-- Link with dropdown items -->
+                     <a class="sidebar-link" href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false"><i class="fas fa-robot sidebar-icon"></i>Miners</a>
+                     <ul class="collapse list-unstyled" id="homeSubmenu7">
+                     
+                        
+                       <li>
+                         <a href="https://github.com/trexminer/T-Rex/releases" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-download sidebar-icon"></i>&nbsp;T-Rex</a>
+                       </li> 
+                        <li>
+                         <a href="https://www.nicehash.com/?refby=1662147" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.nicehash.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;NiceHash
+                         </a>
+                        </li>
+                        <li>
+                         <a href="https://www.miningrigrentals.com/register?ref=2607460" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.miningrigrentals.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;MiningRigRentals
+                         </a>
+                        </li>                 
+                                             
+                        <p></p>
+                       
+                     </ul>                   
+                     
+                   </li>
+                   
+                   <li><!-- Link with dropdown items -->
+                     <a class="sidebar-link" href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false">&nbsp;<i class="fas fa-wallet sidebar-icon"></i>&nbsp;Wallets</a>
+                     <ul class="collapse list-unstyled" id="homeSubmenu6">
+                     
+                        {{ for(var pool in it.stats.pools) { }}
+                        <li>
+                             <a class="bg-dark text-light pl-3" href="{{=it.poolConfigs[pool].coin.wallet}}" target="_blank">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a>
+                        </li>
+                        {{ } }}                  
+                                             
+                        <p></p>
+                       
+                     </ul>                   
+                     
+                   </li>
+                   
+                   
+                   
+                   <li><!-- Link with dropdown items -->
+                     <a class="sidebar-link" href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false"><i class="fas fa-link sidebar-icon"></i>&nbsp;Links</a>
+                     <ul class="collapse list-unstyled" id="homeSubmenu4">
+                     
+                        
+                        <li>
+                         <a href="https://brave.com/eas244" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//brave.com/wp-content/uploads/2018/02/cropped-brave_appicon_release-32x32.png" style="height: 24px;width: 24px;" alt="icon" />&nbsp;Brave Browser
+                         </a>
+                        </li>  
+                        <li>
+                         <a href="https://www.sliver.tv/invite/2g0snbvn" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.sliver.tv/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;Silver.tv
+                         </a>
+                        </li>
+                        <li>
+                         <a href="https://www.nicehash.com/?refby=1662147" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.nicehash.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;NiceHash
+                         </a>
+                        </li>
+                        <li>
+                         <a href="https://www.miningrigrentals.com/register?ref=2607460" target="_blank">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.miningrigrentals.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;MiningRigRentals
+                         </a>
+                        </li>                   
+                                             
+                        <p></p>
+                       
+                     </ul>                   
+                     
+                   </li> 
+                   
+                     
+                   
+                   
+                   <li>
+                     <a href="/learn_more">
+                         &nbsp;<i class="fas fa-question-circle sidebar-icon"></i>&nbsp;Help
+                       </a>
+                   </li>
+                   <li>
+                    <a href="/api">
+                        <i class="fa fa-laptop-code sidebar-icon"></i>&nbsp;API
+                    </a>
+                   </li>
+
+                </ul>
+            </div>
+            <!--sidebar-wrapper-->
+
+        
+
+            <!-- Page Content -->
+            <div class="page-content-wrapper px-0">
+                <div class="container-fluid px-0 pt-4">
+			<div style="position:relative;float:middle;display:block;top:16px;">
+			{{ if (it.portalConfig.devmode) { }}
+                        	<!--<span style="display:block;height: 15px;">-->
+                			<h4 style="margin:2px 0 0 0;color:red; border:1px red dashed; text-align: center; vertical-align:middle;">BUGS ARE ONLY TEMPORARY: POOL IS IN DEBUG MODE, PAYMENTS TEMP @  {{=Number(it.portalConfig.devmodePayInterval)}} SEC / {{=it.portalConfig.devmodePayMinimim}} minimum!</h4>
+					<!--<a href="http://miningpool.easyx.info/devmode.html" target="_blank">Wtf is this?</a>-->
+				<!--</span>-->
+	                {{ } }}
+			<!--<br />-->
+			{{ if ((it.portalConfig.poolwarningmsg !== "undefined") & (it.portalConfig.poolwarningmsg !== "")) { }}
+				<!--<span style="display:block;height: 15px;">-->
+					<h4 style="clear:left;margin:2px 0 0 0;color:red; border:1px red dashed; text-align: center; vertical-align:middle;">{{=it.portalConfig.poolwarningmsg}}</h4>
+				<!--</span>-->                
+	                {{ } }}
+                	</div>
+			<main id="mainContent">
+				{{=it.page}}
+			</main>
+                </div>
+            </div>
+            <!--page-content-wrapper-->
+        </div>
+        <!--Don't be a dick... Keep this if you use the project-->
+        <footer>
+            <div class="footer_container">
+
+		<div>
+			
+			<!-- BTC Donations -->
+			{{ if ((it.portalConfig.btcdonations !== "undefined") & (it.portalConfig.btcdonations !== "")) { }}
+				<span>BTC Donations: {{=it.portalConfig.btcdonations}}</span><br />
+			{{ } else { }}
+				<span>BTC Donations: 18TmiWzbMLyf7MvQMcNWh3hUBVrxBgzrWi</span><br />	    
+			{{ } }}
+			
+			
+			<!-- BTC Donations -->
+			{{ if ((it.portalConfig.ltcdonations !== "undefined") & (it.portalConfig.ltcdonations !== "")) { }}
+				<span>LTC Donations: {{=it.portalConfig.ltcdonations}}</span><br />
+			{{ } else { }}
+				<span>LTC Donations: LX1fUwLVcAaRXvP67ZcqUvjjteaKx1nAvL</span><br />
+			{{ } }}
+			
+			
+			<!-- BTC Donations -->
+			{{ if ((it.portalConfig.ethdonations !== "undefined") & (it.portalConfig.ethdonations !== "")) { }}
+				<span>ETH/ERC20 Donations: {{=it.portalConfig.ethdonations}}</span><br />
+			{{ } else { }}
+				<span>ETH/ERC20 Donations: 0x52fD0B6847E1D3cEc5600359f24d671FdE2Bc65B</span><br />	    
+			{{ } }}
+			
+			
+			<!-- BTC Donations -->
+			{{ if ((it.portalConfig.xmrdonations !== "undefined") & (it.portalConfig.xmrdonations !== "")) { }}
+				<span>XMR Donations: {{=it.portalConfig.xmrdonations}}</span><br />
+			{{ } else { }}
+				<span>XMR Donations: 4AVabKt1zGhUckqWC5DKtkcc49ChYFuSETzvDZFfVnUYYY5vC4CSZ9xYzmCWvx7ePYZ9YvxgYbYsLL1L9TfQy2hi5Awsc7d</span><br />	    
+			{{ } }}
+
+      </div>
+		<br />
+		<br />
+
+					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
+					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
+                    <span>Powered by <a href="https://github.com/EasyX-Community/EasyNOMP" >EasyX-Community/EasyNOMP</a></span>
+					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
+					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
+					
+					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
+					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
+               <div id="communityFooter">
+                   <iframe src="//ghbtns.com/github-btn.html?user=EasyX-Community&repo=EasyNOMP&type=watch&count=true"
+                            allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+               </div>
+               <!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
+					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
+					
+            </div>
+            
+        </footer>
+        
+        <!--Menu Toggle Script-->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            
+            //collapse all menus (works yay!)
+            $('#homeSubmenu').collapse('hide');            
+            $('#homeSubmenu2').collapse('hide');            
+            $('#homeSubmenu4').collapse('hide');            
+            $('#homeSubmenu6').collapse('hide');            
+            $('#homeSubmenu7').collapse('hide');            
+            
+        });
+        $(".sidebar-link").click(function(e) {
+            e.preventDefault();
+            if(!$("#wrapper").hasClass("toggled")){
+              $("#wrapper").toggleClass("toggled");
+            }
+        });
+        </script>
+    </body>
+
+</html>

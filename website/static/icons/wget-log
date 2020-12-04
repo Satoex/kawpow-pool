@@ -1,0 +1,11 @@
+--2019-07-27 01:09:35--  https://www.google.ca/url?sa=i
+Resolving www.google.ca (www.google.ca)... 172.217.164.227, 2607:f8b0:400b:801::2003
+Connecting to www.google.ca (www.google.ca)|172.217.164.227|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘url?sa=i’
+
+url?sa=i                                                        [<=>                                                                                                                                      ]       0  --.-KB/s               url?sa=i                                                        [ <=>                                                                                                                                     ]   1.38K  --.-KB/s    in 0.001s  
+
+2019-07-27 01:09:35 (2.07 MB/s) - ‘url?sa=i’ saved [1408]
+

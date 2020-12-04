@@ -1,0 +1,120 @@
+<style>
+
+  .size-1 {
+     width: 256px;
+     height: 256px;
+     display: block;
+     float: center;
+     box-sizing: border-box;
+     margin: auto;
+   }
+
+  .chartLabel {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .chartHolder {
+    min-height: 300px;
+  }
+  #boxesWorkers {
+      margin: 0 9px;
+  }
+  #boxesWorkers > div {
+      border-radius: 20px;
+      display: flex;
+  }
+  #boxesWorkers > div > div {
+      flex: 1 1 auto;
+      margin: 0 9px 18px 9px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+  }
+  .boxLowerHeader{
+      font-size: 1.3em;
+      margin: 0 0 5px 10px;
+  }
+  #boxStatsLeft{
+      color: #fefefe;
+      background-color: #343A40;
+  }
+  #boxStatsRight{
+    color: #fefefe;
+    background-color: #343A40;
+  }
+  .boxStats{
+      color: white;
+  }
+  .boxStatsList{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      opacity: 0.77;
+      margin-bottom: 5px;
+      flex: 1 1 auto;
+      align-content: center;
+  }
+  .boxStatsList i.fa{
+      height: 15px;
+      width: 33px;
+      text-align: center;
+  }
+  .boxStatsList > div{
+      padding: 5px 20px;
+  }
+  .boxStatsList > div > div{
+      padding: 3px;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row justify-content-center pb-0">
+    <h4 class="display-4 pb-0 mb-0" style="font-size: 26px;">Account Details</h4>
+  </div>
+  <div class="row my-0 mt-0 pt-0 justify-content-center">
+    <p class="lead" style="font-size: 16px;">
+    Total Immature: <span id="total-immature-label"></span><br />
+    Total Balance: <span id="total-balance-label"></span><br />
+    Total Paid: <span id="total-paid-label"></span><!--<br />
+    Luck Days: <span id="total-luckdays-label"></span>--></p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-3">
+      <div id="gauge" class="size-1"></div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div id="validShare" class="size-1"></div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div id="workerDominance" class="size-1"></div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div id="hashDominance" class="size-1"></div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12 chartWrapper">
+      <div class="chartLabel">Worker Hashrate History<br /><span class="text-muted" style="font-size: 12px;">Colors are random! If you don't like the ones given, simply refresh the page!</span></div>
+      <div class="chartHolder"><canvas id="workerHashChart" height="50"></canvas></div>
+    </div>
+  </div>
+
+  <div class="row">&nbsp;<br /><br /></div>
+
+  <div class="row mt-5 mx-5">
+    <div id="boxesWorkers"> </div>
+  </div>
+</div>
+
+<script>
+  //Use doT to retrieve the address, dropping any worker names
+	var _miner = '{{=String(it.stats.address).split(".")[0]}}';
+  addPoolToTracker(_miner);
+  //count of workers this address has (I.E. names using the same address)
+	var _workerCount = 0;
+  //Used for EMA calculations and other misc. fucntions
+  document.querySelector('main').appendChild(document.createElement('script')).src = '/static/methods.js';
+  //Then connect the graph handler
+  document.querySelector('main').appendChild(document.createElement('script')).src = '/static/miner_stats.js';
+</script>

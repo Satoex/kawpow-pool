@@ -1,0 +1,91 @@
+<div class="alert alert-success mb-0">
+		<p class="mt-2">Quick Start Commands (GPU Algorithms):</p>
+		<div class="alert alert-light">
+				ccminer -a &lt;ALGORITHM&gt; -o stratum+tcp://{{=it.portalConfig.website.stratumHost}}:&lt;PORT&gt; -u &lt;WALLET.WORKER&gt; -p &lt;ANYTHING&gt;
+		</div>
+		<div class="alert alert-light">
+				sgminer -k &lt;ALGORITHM&gt; -o stratum+tcp://{{=it.portalConfig.website.stratumHost}}:&lt;PORT&gt; -u &lt;WALLET.WORKER&gt; -p &lt;ANYTHING&gt;
+		</div>
+		<div class="alert alert-light">
+				t-rex -a &lt;ALGORITHM&gt; -o stratum+tcp://{{=it.portalConfig.website.stratumHost}}:&lt;PORT&gt; -u &lt;WALLET.WORKER&gt; -p &lt;ANYTHING&gt;
+		</div>
+		<p class="text-muted mb-0 mt-0">Doesn't make sense? Head over to <a href="/getting_started">Getting Started</a> for more help!</p>
+</div>
+<div id="container-fluid">
+	<table class="table table-bordered table-striped">
+	  <thead>
+	    <tr>
+					<th style="text-align:center;vertical-align: middle;">Coin</port>
+	      	<th style="text-align:center;vertical-align: middle;">Symbol</th>
+	      	<th style="text-align:center;vertical-align: middle;">Algo</th>
+	     		<th style="text-align:center;vertical-align: middle;">Ports</th>
+		  		<th style="text-align:center;vertical-align: middle;">N. Hash Rate</th>
+		  		<th style="text-align:center;vertical-align: middle;">Hash Rate</th>
+		  		<th style="text-align:center;vertical-align: middle;">Mature</th>
+		  		<th style="text-align:center;vertical-align: middle;">Pending</th>
+	      	<th style="text-align:center;vertical-align: middle;">Workers</th>
+	     		<th style="text-align:center;vertical-align: middle;">Difficulty</th>
+	     		<th style="text-align:center;vertical-align: middle;">Change In</th>
+        	<th style="text-align:center;vertical-align: middle;">Fee</th>
+		<th style="text-align:center;vertical-align: middle;">Donations:</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+
+			{{ var sortedPools = it.stats.pools; }}	  
+	  
+			 
+	  
+			{{ for(var pool in it.stats.pools) { }}
+		   		
+				<th style="text-align:center;vertical-align: middle;">
+				<a class="bg-light text-dark pl-3" href="/stats/{{=it.stats.pools[pool].name}}">
+				<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" alt="icon" style="height: 25px;"/> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} </a>
+				</th>
+				<th style="text-align:center;vertical-align: middle;"><a href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].symbol}}</a></th>
+                                <td>{{=it.stats.pools[pool].algorithm}}</td>
+
+				<td scope="row" style="text-align:center;vertical-align: middle;">
+				{{ for(var pool2 in it.stats.pools) { }}
+				{{ if(pool2 != pool) continue; }}
+				{{=Object.keys(it.poolsConfigs[pool2].ports)}}
+				{{ break; }}
+				{{ } }}
+				</td>
+		 			
+	 			<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].poolStats.networkSolsString}}</td>
+			
+				<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].hashrateString}}</td>
+				
+				<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.confirmed}}</td>
+				
+				<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.pending}}</td>
+			
+	 			<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].workerCount}}</td>
+			
+				<td scope="row" style="text-align:center;vertical-align: middle;">{{=Number(Math.round(it.stats.pools[pool].poolStats.networkDiff + 'e' + 4) + 'e-' + 4)}}</td>
+			
+				{{ var blocktime = it.stats.pools[pool].blockTime || 0; }}
+				{{ var blockchange = it.stats.pools[pool].blockChange || 0; }}				
+                {{ var blockheight = it.stats.pools[pool].poolStats.networkBlocks || 0; }}
+                
+                {{ var changehours = Number.parseFloat((((blockchange) - (blockheight % blockchange)) / blocktime)).toFixed(2) || 0; }}
+                {{ var changeblocks = ((blockchange) - (blockheight % blockchange)) || 0; }}
+			    
+				<td scope="row" style="text-align:center;vertical-align: middle;">{{=changeblocks}} blocks (appx. {{=changehours}} hours)</td>
+            				
+				{{ var total = 0.0; }}
+        		{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+				{{ for (var r in rewardRecipients) { }}
+    				{{ total += rewardRecipients[r]; }}
+    			{{ } }}
+            		
+                <td style="text-align:center;vertical-align: middle;">{{=total}}%</td>
+            		
+                <td style="text-align:center;vertical-align: middle;">{{=(it.poolsConfigs[pool].donateaddress||'none')}}</tr>
+			
+			{{ } }}
+			
+	  </tbody>
+	</table>
+</div>

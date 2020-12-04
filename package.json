@@ -1,0 +1,86 @@
+{
+    "name": "RavenNOMP",
+    "version": "1.1.4",
+    "description": "An extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool",
+    "keywords": [
+        "stratum",
+        "mining",
+        "pool",
+        "server",
+        "poolserver",
+        "bitcoin",
+        "litecoin",
+        "scrypt"
+    ],
+    "homepage": "https://github.com/DirtyHarryDev/nomp-kawpow-pool",
+    "bugs": {
+        "url": "https://github.com/DirtyHarryDev/nomp-kawpow-pool/issues"
+    },
+    "license": "GPL-2.0",
+    "author": "Leshacat",
+    "contributors": [
+        "leshacat",
+        "devnulled",
+        "foxer666",
+        "vekexasia",
+        "TheSeven",
+        "Kris Klosterman"
+    ],
+    "main": "init.js",
+    "bin": {
+        "block-notify": "./scripts/blockNotify.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DirtyHarryDev/nomp-kawpow-pool.git"
+    },
+    "dependencies": {
+        "3.npm": "^1.0.0",
+        "asn1": "^0.2.4",
+        "async": "^2.6.3",
+        "bcrypt-pbkdf": "^1.0.2",
+        "bignum": "^0.13.0",
+        "bignumber.js": "^6.0.0",
+        "body-parser": "^1.18.3",
+        "chart.js": "^2.7.3",
+        "chartjs-plugin-zoom": "^0.6.6",
+        "cluster": "^0.7.7",
+        "color-name": "^1.1.4",
+        "colors": "^1.3.3",
+        "combined-stream": "^1.0.7",
+        "compression": "^1.7.3",
+        "dateformat": "^2.2.0",
+        "dot": "^1.1.2",
+        "ecc-jsbn": "^0.1.2",
+        "exponential-moving-average": "^1.0.0",
+        "express": "^4.16.4",
+        "form-data": "^2.3.3",
+        "http-errors": "^1.7.1",
+        "ip-anonymize": "^0.1.0",
+        "ls": "^0.2.1",
+        "mime-types": "^2.1.21",
+        "moment": "^2.23.0",
+        "multi-hashing": "git://github.com/DirtyHarryDev/node-multi-hashing.git",
+        "mysql": "^2.16.0",
+        "newrelic": "^5.1.0",
+        "node-json-minify": "^1.0.0",
+        "node-multi-hashing": "0.0.1",
+        "node-watch": "^0.5.9",
+        "nonce": "^1.0.4",
+        "redis": "^2.7.1",
+        "redis-commands": "^1.4.0",
+        "request": "^2.88.0",
+        "safe-buffer": "^5.1.2",
+        "semver": "^5.7.1",
+        "sha3": "^2.1.2",
+        "sma": "^0.1.1",
+        "sshpk": "^1.15.2",
+        "stratum-pool": "git+https://github.com/DirtyHarryDev/kawpow-stratum-pool.git",
+        "winston": "^3.2.1",
+        "winston-daily-rotate-file": "^3.5.1",
+        "winston-transport": "^4.3.0"
+    },
+    "engines": {
+        "node": ">=8.1.4"
+    }
+}

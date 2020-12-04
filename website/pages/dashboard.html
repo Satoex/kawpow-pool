@@ -1,0 +1,65 @@
+<style>
+
+    #topCharts {
+        padding: 18px;
+    }
+
+    #topCharts > div > div > svg {
+        display: block;
+        height: 280px;
+    }
+
+    .chartWrapper {
+        border: solid 1px #c7c7c7;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 18px;
+    }
+
+    .chartLabel {
+        font-size: 1.2em;
+        text-align: center;
+        padding: 4px;
+    }
+
+    .chartHolder {
+
+    }
+
+    table {
+        width: 100%;
+    }
+
+</style>
+
+
+<div class="container-fluid pt-3">
+  <div class="row col pb-0">
+    <p class="lead mb-1">Look Up Address</p>
+  </div>
+  <div class="row pl-3 mb-0">
+    <form id="searchForm">
+      <div class="input-group">
+        <input type="text" id="searchBar" class="form-control" placeholder="Wallet Address" aria-label="Wallet Address" aria-describedby="basic-addon2" style="min-width: 400px;">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" id="searchButton" type="submit"><i class="fa fa-search"></i> Lookup</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <table id="walletTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col"><i class="fa fa-money"></i> Wallets</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="walletTableBody">
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  document.querySelector('main').appendChild(document.createElement('script')).src = '/static/dashboard.js';
+</script>
