@@ -1,4 +1,4 @@
-# rvn-kawpow-pool
+# nomp-kawpow-pool
 Highly Efficient mining pool for Raven Coin Kawpow algo!
 
 -------
