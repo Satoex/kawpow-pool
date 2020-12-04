@@ -1,0 +1,150 @@
+{
+    
+    "poolname": "Raven Coin Pool",
+    
+    "devmode": false,
+    "devmodePayMinimim": 0.25,
+    "devmodePayInterval": 120,
+    
+    "logips": true,       
+    "anonymizeips": true,
+    "ipv4bits": 16,
+    "ipv6bits": 16,
+    "poolwarningmsg": "",
+    
+     "defaultCoin": "ravencoin",
+    
+    "poollogo": "https://zelcash.github.io/zeltrez.io/images/logos/Ravencoin.svg",
+    
+    "discordtwitterfacebook": "Join our #mining channel on Discord: <a href='https://discord.gg/vzcbVNW' target='_blank'>https://discord.gg/vzcbVNW</a>",
+    
+    "pagetitle": "Raven Coin Pool - 1% Fees Promo - Run by professionals",
+    "pageauthor": "My Name Is...",
+    "pagedesc": "A reliable, low fee, easy to use mining pool for cryptocurrency! No matter your experience with mining cryptocurrency, we make it easy! Get started mining today!",
+    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Bitcoin,Raven,Ravencoin,Wavi,Wavicoin,Dixicoin,Dixi,QBic,QBicCoin,Easy,Simple,How,To",
+
+    "btcdonations": "1NRXddRwZSXVQ8NBdgiwv5DsJn2bmHenu6",
+    "ltcdonations": "LcghtmAVSi94FHrn4xbbSd4nFChWy6QUng",
+    "ethdonations": "0x85c5e7db222705da939174cf435d8836423a03e8",
+
+    "logger" : {
+        "level" : "debug",
+        "file" : "~/nomp-kawpow-pool/logs/nomp_debug.log"
+    },
+
+    "cliHost": "127.0.0.1",
+    "cliPort": 17117,
+
+    "clustering": {
+        "enabled": false,
+        "forks": "auto"
+    },
+
+    "defaultPoolConfigs": {
+        "blockRefreshInterval": 1000,
+        "jobRebroadcastTimeout": 55,
+        "connectionTimeout": 600,
+        "emitInvalidBlockHashes": false,
+        "validateWorkerUsername": true,
+        "tcpProxyProtocol": false,
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 50,
+            "checkThreshold": 500,
+            "purgeInterval": 300
+        },
+        "redis": {
+            "host": "127.0.0.1",
+            "port": 6379
+        }
+    },
+
+    "website": {
+        "enabled": true,
+        "sslenabled": false,
+        "sslforced": false,
+        "host": "0.0.0.0",
+        "port": 80,
+        "sslport": 443,
+        "sslkey": "~/nomp-kawpow-pool/certs/privkey.pem",
+        "sslcert": "~/nomp-kawpow-pool/certs/fullchain.pem",
+        "stratumHost": "192.168.0.200",
+        "stats": {
+            "updateInterval": 5,
+            "historicalRetention": 43200,
+            "hashrateWindow": 600
+        },
+        "adminCenter": {
+            "enabled": false,
+            "password": "NOT_WORKING_YET_:P_LESHACAT_CAN_DO_ADMIN_PANEL_FUNCTIONALITY_TOO"
+        }
+    },
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+    },
+
+    "switching": {
+        "switch1": {
+            "enabled": false,
+            "algorithm": "sha256",
+            "ports": {
+                "3333": {
+                    "diff": 10,
+                    "varDiff": {
+                        "minDiff": 16,
+                        "maxDiff": 512,
+                        "targetTime": 15,
+                        "retargetTime": 90,
+                        "variancePercent": 30
+                    }
+                }
+            }
+        },
+        "switch2": {
+            "enabled": false,
+            "algorithm": "scrypt",
+            "ports": {
+                "4444": {
+                    "diff": 10,
+                    "varDiff": {
+                        "minDiff": 16,
+                        "maxDiff": 512,
+                        "targetTime": 15,
+                        "retargetTime": 90,
+                        "variancePercent": 30
+                    }
+                }
+            }
+        },
+        "switch3": {
+            "enabled": false,
+            "algorithm": "x11",
+            "ports": {
+                "5555": {
+                    "diff": 0.001,
+                    "varDiff": {
+                        "minDiff": 0.001,
+                        "maxDiff": 1, 
+                        "targetTime": 15, 
+                        "retargetTime": 60, 
+                        "variancePercent": 30 
+                    }
+                }
+            }
+        }
+    },
+
+    "profitSwitch": {
+        "enabled": false,
+        "updateInterval": 600,
+        "depth": 0.90,
+        "usePoloniex": true,
+        "useCryptsy": true,
+        "useMintpal": true,
+        "useBittrex": true
+    }
+
+}
