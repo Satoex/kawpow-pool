@@ -22,8 +22,8 @@ sudo setcap 'cap_net_bind_service=+ep' ~/.nvm/versions/node/v8.1.4/bin/node
 
 screen -S pool node init.js
 
-renice -n -18 -p $(pidof node)
-renice -n -18 -p $(pidof nodejs)
+sudo renice -n -18 -p $(pidof node)
+sudo renice -n -18 -p $(pidof nodejs)
 
 echo ""
 echo "Done!"
