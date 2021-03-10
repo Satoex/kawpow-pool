@@ -22,7 +22,7 @@ sudo add-apt-repository -y ppa:bitcoin/bitcoin
 
 sudo apt update
 sudo apt install -y libdb4.8-dev libdb4.8++-dev libssl-dev libboost-all-dev libminiupnpc-dev libtool autotools-dev redis-server
-sudo apt-get install -y sudo git npm nodejs nodejs-legacy      
+sudo apt-get install -y sudo git npm nodejs      
 
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
