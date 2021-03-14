@@ -1,0 +1,17 @@
+{
+    "name": "satocoin",    
+    "symbol": "SATO",    
+    "algorithm": "kawpow",
+    
+    "wallet": "https://github.com/Satoex/Sato/releases",
+
+    "explorer":"https://satoblockscan.xyz/",
+    
+    "explorerGetBlockJSON": "https://satoblockscan.xyz/api/getrawtransaction?txid=",
+    "explorerGetBlock": "https://satoblockscan.xyz/block/",
+    "explorerGetTX": "https://satoblockscan.xyz/tx/",
+    
+    "blockTime": 60,
+    "blockChange": 1
+    
+}
