@@ -27,38 +27,38 @@
     },
 
      "ports": {
-	       "11008": {
+	 "11008": {
              "diff": 2,
-    	       "varDiff": {
-    	           "minDiff": 1,
-    	           "maxDiff": 16,
-    	           "targetTime": 10,
-    	           "retargetTime": 60,
-    	           "variancePercent": 30,
-    		         "maxJump": 25
-    	       }
+    	     "varDiff": {
+    	         "minDiff": 1,
+    	         "maxDiff": 16,
+    	         "targetTime": 10,
+    	         "retargetTime": 60,
+    	         "variancePercent": 30,
+    	         "maxJump": 25
+    	     }
          },
          "11032": {
-	           "diff": 0.1,
+	     "diff": 0.1,
              "varDiff": {
                 "minDiff": 0.05,
                 "maxDiff": 16,
-    	          "targetTime": 10,
-    	          "retargetTime": 60,
-    	          "variancePercent": 30,
-		            "maxJump": 25
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
             }
         },
         "11256": {
-	          "diff": 1000,
-	          "varDiff": {
-    	          "minDiff": 500,
-    		        "maxDiff": 9000,
-    	          "targetTime": 10,
-    	          "retargetTime": 60,
-    	          "variancePercent": 30,
-    		        "maxJump": 50
-    	      }
+	    "diff": 1000,
+	    "varDiff": {
+    	        "minDiff": 500,
+    		"maxDiff": 9000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    		"maxJump": 50
+    	    }
         }
     },
 
