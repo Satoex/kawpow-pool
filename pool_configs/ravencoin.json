@@ -1,5 +1,5 @@
 {
-    "enabled": true,
+    "enabled": false,
     "coin": "ravencoin.json",
 
     "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj",
@@ -36,28 +36,30 @@
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-    		    "maxJump": 25
+    		"maxJump": 25
     	    }
         },
         "10032": {
+	    "diff": 0.1,
             "varDiff": {
-                "minDiff": 0.04,
+                "minDiff": 0.05,
                 "maxDiff": 16,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-		        "maxJump": 25
+		"maxJump": 25
             }
         },
         "10256": {
-		    "varDiff": {
-    			"minDiff": 1000,
-    			"maxDiff": 9000,
+	    "diff": 1000,
+	    "varDiff": {
+    	        "minDiff": 500,
+    		"maxDiff": 9000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-    			"maxJump": 50
-    		}
+    		"maxJump": 50
+    	   }
         }
     },
 
