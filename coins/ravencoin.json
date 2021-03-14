@@ -3,13 +3,13 @@
     "symbol": "RVN",    
     "algorithm": "kawpow",
     
-    "wallet": "https://github.com/xagau/Placeholders-X16R",
+    "wallet": "https://github.com/RavenProject/Ravencoin/releases",
 
-    "explorer":"https://rvn.easyxpool.tk/",
+    "explorer":"https://explorer.ravenland.org/",
     
-    "explorerGetBlockJSON": "http://rvnhodl.com/api/getrawtransaction?decrypt=1&txid=",
-    "explorerGetBlock": "http://rvnhodl.com/block/",
-    "explorerGetTX": "http://rvnhodl.com/tx/",
+    "explorerGetBlockJSON": "https://explorer.ravenland.org/api/getrawtransaction?decrypt=1&txid=",
+    "explorerGetBlock": "https://explorer.ravenland.org/block/",
+    "explorerGetTX": "https://explorer.ravenland.org/tx/",
     
     "blockTime": 60,
     "blockChange": 1
