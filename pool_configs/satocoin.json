@@ -20,7 +20,7 @@
         "coinPrecision": 8,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 8766,
+            "port": 3333,
             "user": "user1",
             "password": "pass1"
         }
@@ -65,7 +65,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8766,
+            "port": 3333,
             "user": "user1",
             "password": "pass1"
         }
@@ -74,7 +74,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 3334,
         "disableTransactions": true
     },
 
