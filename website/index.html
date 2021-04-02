@@ -3,14 +3,12 @@
 
     <head>   
     
-		<!-- LeshaCat: We now need to decide if we are currently SSL and then if not and forcing SSL, redirect to SSL port. -->
 		<!--<script type="text/javascript" >
 		if ((it.portalConfig.website.sslforced) & (location.protocol === 'http:')) {
 		    // similar behavior as clicking on a link
 			window.location.href = "https://{{=it.portalConfig.website.stratumHost}}:{{=it.portalConfig.website.sslport}}/";
 		}
-		</script>-->
-		<!-- LeshaCat: We now need to decide if we are currently SSL and then if not and forcing SSL, redirect to SSL port. -->    
+		</script>-->    
     
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         
@@ -19,7 +17,7 @@
 			{{ if ((it.portalConfig.pagedesc !== "undefined") & (it.portalConfig.pagedesc !== "")) { }}
 				<meta name="description" content="{{=it.portalConfig.pagedesc}}" />
 			{{ } else { }}
-				<meta name="description" content="An EasyNOMP cryptocurrency mining pool - https://github.com/leshacat/EasyNOMP" />    
+				<meta name="description" content="An KawPoW algorithm mining pool - https://github.com/DirtyHarryDev/nomp-kawpow-pool" />    
 			{{ } }}
 			
         
@@ -27,7 +25,7 @@
 			{{ if ((it.portalConfig.pagekeywds !== "undefined") & (it.portalConfig.pagekeywds !== "")) { }}
 				<meta name="keywords" content="{{=it.portalConfig.pagekeywds}}" />
 			{{ } else { }}
-				<meta name="keywords" content="EasyNOMP,NOMP,node-open-mining-portal,pool,mining pool, mining, cryptocurrency, crypto, bitcoin, btc" />
+				<meta name="keywords" content="KawPoW, NOMP, node-open-mining-portal, pool, mining pool, mining, cryptocurrency, crypto, ravencoin, satocoin" />
 			{{ } }}
 			
         
@@ -44,7 +42,7 @@
 			{{ if ((it.portalConfig.pagetitle !== "undefined") & (it.portalConfig.pagetitle !== "")) { }}
 				<title>{{=it.portalConfig.pagetitle}}</title>
 			{{ } else { }}
-				<title>EasyNOMP Mining Pool - https://github.com/leshacat/EasyNOMP</title>	    
+				<title>KawPoW Mining Pool - https://github.com/DirtyHarryDev/nomp-kawpow-pool</title>	    
 			{{ } }}
 	    
 	    
@@ -98,7 +96,7 @@
 
 
 
-        <!-- the scrieeeepts -->
+        <!-- the scripts -->
         <script src="/static/main.js"></script>
         
         <script src="/static/stat_tracker.js"></script>
@@ -115,12 +113,11 @@
             <nav id="topNavBar" class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap px-0" style="height: 40px;">
 		    
 					{{ if ((it.portalConfig.poollogo !== "undefined") & (it.portalConfig.poollogo !== "")) { }}
-						<span style="font-size: 18px; color: white;"><img src='{{=it.portalConfig.poollogo}}' height="30px" width="30px" />&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
+						<span style="font-size: 18px; color: white;"><img src='{{=it.portalConfig.poollogo}}' height="30px" width="30px" />&nbsp;&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
 					{{ } else { }}
 						<span style="font-size: 18px; color: white;">&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
 					{{ } }}
 		    
-                    <span style="font-size: 10px; color: white;">Powered by <a href="https://github.com/EasyX-Community/EasyNOMP" target="_blank">EasyX-Community/EasyNOMP</a></span>
                     <span style="font-size: 16px; color: white;"><i>{{=it.portalConfig.discordtwitterfacebook}}&nbsp;&nbsp;&nbsp;&nbsp;</i></span>
             </nav>
         </header>
@@ -280,15 +277,18 @@
                         <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars sidebar-icon"></i>&nbsp;&nbsp;Toggle Menu</a>
                     </li>
                            
-                                   
+                    <li>
+                     <a href="/">
+                         <i class="fas fa-home sidebar-icon"></i>&nbsp;Home
+                     </a>
+                   </li>
+                                  
                    <li>
                      <a href="/news">
                          <i class="fas fa-newspaper sidebar-icon"></i>&nbsp;News
                      </a>
                    </li>
-                   
-                         
-                                 
+                                               
                    <li>
                      <a href="/getting_started"><i class="fa fa-user-plus sidebar-icon"></i>Add Miner</a>
                    </li>
@@ -455,7 +455,6 @@
 			{{ if (it.portalConfig.devmode) { }}
                         	<!--<span style="display:block;height: 15px;">-->
                 			<h4 style="margin:2px 0 0 0;color:red; border:1px red dashed; text-align: center; vertical-align:middle;">BUGS ARE ONLY TEMPORARY: POOL IS IN DEBUG MODE, PAYMENTS TEMP @  {{=Number(it.portalConfig.devmodePayInterval)}} SEC / {{=it.portalConfig.devmodePayMinimim}} minimum!</h4>
-					<!--<a href="http://miningpool.easyx.info/devmode.html" target="_blank">Wtf is this?</a>-->
 				<!--</span>-->
 	                {{ } }}
 			<!--<br />-->
@@ -472,17 +471,17 @@
             </div>
             <!--page-content-wrapper-->
         </div>
-        <!--Don't be a dick... Keep this if you use the project-->
-        <footer>
-            <div class="footer_container">
 
-		<div>
+	<footer>
+		<div class="footer_container">
+
+			<div>
 			
 			<!-- BTC Donations -->
 			{{ if ((it.portalConfig.btcdonations !== "undefined") & (it.portalConfig.btcdonations !== "")) { }}
 				<span>BTC Donations: {{=it.portalConfig.btcdonations}}</span><br />
 			{{ } else { }}
-				<span>BTC Donations: 18TmiWzbMLyf7MvQMcNWh3hUBVrxBgzrWi</span><br />	    
+				<span>BTC Donations: 1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt</span><br />	    
 			{{ } }}
 			
 			
@@ -490,47 +489,24 @@
 			{{ if ((it.portalConfig.ltcdonations !== "undefined") & (it.portalConfig.ltcdonations !== "")) { }}
 				<span>LTC Donations: {{=it.portalConfig.ltcdonations}}</span><br />
 			{{ } else { }}
-				<span>LTC Donations: LX1fUwLVcAaRXvP67ZcqUvjjteaKx1nAvL</span><br />
+				<span>LTC Donations: LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz</span><br />
 			{{ } }}
 			
-			
-			<!-- BTC Donations -->
-			{{ if ((it.portalConfig.ethdonations !== "undefined") & (it.portalConfig.ethdonations !== "")) { }}
-				<span>ETH/ERC20 Donations: {{=it.portalConfig.ethdonations}}</span><br />
-			{{ } else { }}
-				<span>ETH/ERC20 Donations: 0x52fD0B6847E1D3cEc5600359f24d671FdE2Bc65B</span><br />	    
-			{{ } }}
-			
-			
-			<!-- BTC Donations -->
-			{{ if ((it.portalConfig.xmrdonations !== "undefined") & (it.portalConfig.xmrdonations !== "")) { }}
-				<span>XMR Donations: {{=it.portalConfig.xmrdonations}}</span><br />
-			{{ } else { }}
-				<span>XMR Donations: 4AVabKt1zGhUckqWC5DKtkcc49ChYFuSETzvDZFfVnUYYY5vC4CSZ9xYzmCWvx7ePYZ9YvxgYbYsLL1L9TfQy2hi5Awsc7d</span><br />	    
-			{{ } }}
+			</div>
 
-      </div>
-		<br />
-		<br />
+			<br />
+			<br />
 
-					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
-					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
-                    <span>Powered by <a href="https://github.com/EasyX-Community/EasyNOMP" >EasyX-Community/EasyNOMP</a></span>
-					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
-					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
-					
-					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
-					<!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
-               <div id="communityFooter">
-                   <iframe src="//ghbtns.com/github-btn.html?user=EasyX-Community&repo=EasyNOMP&type=watch&count=true"
-                            allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-               </div>
-               <!-- CHANGING THIS IS A VIOLATION OF YOUR LICENSE TERMS~! -->
-					<!-- PLEASE DO NOT CHANGE THIS UNLESS YOU ARE FORKING EASYNOMP! -->
-					
-            </div>
+			<span>Powered by <a href="https://github.com/DirtyHarryDev/nomp-kawpow-pool" >Dirty Harry KawPoW Pool</a></span>
+
+			<div id="communityFooter">
+                   		<iframe src="//ghbtns.com/github-btn.html?user=DirtyHarryDev&repo=nomp-kawpow-pool&type=watch&count=true"
+                            	allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+			</div>
+
+		</div>
             
-        </footer>
+	</footer>
         
         <!--Menu Toggle Script-->
         <script>
