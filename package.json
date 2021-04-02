@@ -1,23 +1,25 @@
 {
     "name": "KawPowNOMP",
     "version": "1.1.4",
-    "description": "An extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool",
+    "description": "An extremely efficient, highly scalable, KawPoW algorithm mining pool",
     "keywords": [
         "stratum",
         "mining",
         "pool",
         "server",
         "poolserver",
-        "bitcoin",
-        "litecoin",
-        "scrypt"
+        "Ravencoin",
+        "Sato",
+        "Zelantus"
+        "Splendidcoin"
+        "KawPoW"
     ],
     "homepage": "https://github.com/DirtyHarryDev/nomp-kawpow-pool",
     "bugs": {
         "url": "https://github.com/DirtyHarryDev/nomp-kawpow-pool/issues"
     },
     "license": "GPL-2.0",
-    "author": "Leshacat",
+    "author": "Dirty Harry",
     "contributors": [
         "leshacat",
         "devnulled",
