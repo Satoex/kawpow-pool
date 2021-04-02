@@ -1,4 +1,4 @@
-# nomp-kawpow-pool
+# NOMP KawPoW Algorithm Pool
 Highly Efficient mining pool for Raven Coin Kawpow algo!
 
 -------
@@ -19,13 +19,9 @@ Highly Efficient mining pool for Raven Coin Kawpow algo!
 ### Node Open Mining Portal consists of 3 main modules:
 | Project | Link |
 | ------------- | ------------- |
-| [EasyNOMP](https://github.com/EasyX-Community/EasyNOMP) | https://github.com/EasyX-Community/EasyNOMP |
+| [KawPoWNOMP](https://github.com/EasyX-Community/EasyNOMP) | https://github.com/EasyX-Community/EasyNOMP |
 | [Stratum Pool](https://github.com/RavenCommunity/kawpow-stratum-pool) | https://github.com/RavenCommunity/kawpow-stratum-pool |
 | [Node Multihashing](https://github.com/EasyX-Community/node-multi-hashing) | https://github.com/EasyX-Community/node-multi-hashing |
-
-### Watch setup guide video on YouTube channel
-
-https://www.youtube.com/watch?v=NOjPFZk4sp0
 
 -------
 ### Requirements
@@ -40,7 +36,7 @@ https://www.youtube.com/watch?v=NOjPFZk4sp0
 
 -------
 
-### Install Coin Daemon
+### Install RavenCoin Daemon
 
     adduser pool
     usermod -aG sudo pool
