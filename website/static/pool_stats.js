@@ -112,9 +112,11 @@ statsSource.addEventListener('message', function(e) {
     var hash = getScaledHashrate(poolName in stats.pools ? stats.pools[poolName].hashrate : 0, pair[2]);
     $("#validShares").text(poolName in stats.pools ? stats.pools[poolName].poolStats.validShares : 0);
     $("#poolHashRate").text((!isNaN(hash) ? hash : 0) + ' ' + (pair[1] ? pair[1] : 'H/s'));
+    $("#poolMiners").text(poolName in stats.pools ? stats.pools[poolName].minerCount : 0);
     $("#poolWorkers").text(poolName in stats.pools ? stats.pools[poolName].workerCount : 0);
     $("#pendingBlocks").text(poolName in stats.pools ? stats.pools[poolName].blocks.pending : 0);
     $("#confirmedBlocks").text(poolName in stats.pools ? stats.pools[poolName].blocks.confirmed : 0);
+    $("#poolRoundShares").text(poolName in stats.pools ? stats.pools[poolName].currentRoundTimes.shareCount : 0);
     var time = stats.time * 1000;
     var avg = pool.averagedHashrate;
     addChartData(poolHashrateChart, poolHashrateChart.data.datasets[0], {t: time, y: hash}, false);
