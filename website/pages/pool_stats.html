@@ -19,7 +19,8 @@
           <tr>
             <th colspan="4" scope="col" style="text-align: center;">General Information</th>
             <th colspan="4" scope="col" style="text-align: center;">Pool Information</th>
-            <th colspan="4" scope="col" style="text-align: center;">Network Information</th>
+            <th colspan="2" scope="col" style="text-align: center;">Round Information</th>
+            <th colspan="2" scope="col" style="text-align: center;">Network Information</th>
           </tr>
         </thead>
         <tbody>
@@ -28,47 +29,41 @@
               <tr>
                 <td style="text-align:center;vertical-align: middle;">Coin: </td>
                 <td style="text-align:center;vertical-align: middle;"><img src="/static/icons/{{=String(it.stats.coin)}}.png" alt="icon" style="height: 24px;" /> {{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}}</td>
-                <td style="text-align:center;vertical-align: middle;">Workers:</td>
-		<td id="poolWorkers" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].workerCount}}</td>
+                <td style="text-align:center;vertical-align: middle;">Miners:</td>
+		<td id="poolMiners" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].minerCount}}</td>
+
                 <td style="text-align:center;vertical-align: middle;">Hashrate:</td>
                 <td id="poolHashRate" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].hashrateString}}</td>
                 <td style="text-align:center;vertical-align: middle;">Pending Blocks:</td>
                 <td id="pendingBlocks" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.pending}}</td>
 
+                <td style="text-align:center;vertical-align: middle;">Pool TTF:</td>
+                <td id="poolMaxRound" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].maxRoundTimeString}}</td>
+
                 <td style="text-align:center;vertical-align: middle;">Hashrate:</td>
                 <td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].poolStats.networkSolsString}}</td>
+              </tr>
 
-                <td style="text-align:center;vertical-align: middle;">Height:</td>
-                <td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].poolStats.networkBlocks}}</td>
-
-              <tr>
               <tr>
                 <td style="text-align:center;vertical-align: middle;">Ports:</td>
                 {{ for(var pool in it.poolsConfigs) { }}
                   {{ if(pool !== it.stats.coin) continue; }}
-                  <td colspan="3" style="text-align:center;vertical-align: middle;">{{=Object.keys(it.poolsConfigs[pool].ports)}}</td>
+                  <td colspan="1" style="text-align:center;vertical-align: middle;">{{=Object.keys(it.poolsConfigs[pool].ports)}}</td>
                   {{ break; }}
                 {{ } }}
+                <td style="text-align:center;vertical-align: middle;">Workers:</td>
+		<td id="poolWorkers" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].workerCount}}</td>
+
                 <td style="text-align:center;vertical-align: middle;">Valid Shares:</td>
                 <td id="validShares" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].poolStats.validShares}}</td>
-                <td style="text-align:center;vertical-align: middle;">Mature Blocks:</td>
+                <td style="text-align:center;vertical-align: middle;">Confirmed Blocks:</td>
                 <td id="confirmedBlocks" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.confirmed}}</td>
+
+                <td style="text-align:center;vertical-align: middle;">Round Shares:</td>
+                <td id="poolRoundShares" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].currentRoundTimes.shareCount}}</td>
+
                 <td style="text-align:center;vertical-align: middle;">Difficulty:</td>
                 <td style="text-align:center;vertical-align: middle;">{{=Number(Math.round(it.stats.pools[pool].poolStats.networkDiff + 'e' + 4) + 'e-' + 4)}}</td>
-
-                <!--<td style="text-align:center;">Connections:</td>
-                <td style="text-align:center;">{{=it.stats.pools[pool].poolStats.networkConnections}}</td>-->
-			
-				{{ var blocktime = it.stats.pools[pool].blockTime || 0; }}
-				{{ var blockchange = it.stats.pools[pool].blockChange || 0; }}				
-                {{ var blockheight = it.stats.pools[pool].poolStats.networkBlocks || 0; }}
-                
-                {{ var changehours = Number.parseFloat((((blockchange) - (blockheight % blockchange)) / blocktime)).toFixed(2) || 0; }}
-                {{ var changeblocks = ((blockchange) - (blockheight % blockchange)) || 0; }}
-                
-				<td colspan='2' style="text-align:center;vertical-align: middle;">Diff change in: {{=changeblocks}} blocks (appx. {{=changehours}} hours)</td>
-               
-                
               </tr>
 		
 		<tr>
