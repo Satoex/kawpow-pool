@@ -389,7 +389,6 @@ module.exports = function(portalConfig, poolConfigs) {
              }
             allCoinStats[coinStats.name] = (coinStats);
           }
-          allCoinStats = sortPoolsByName(allCoinStats);
           callback();
         }
       });
@@ -510,9 +509,6 @@ module.exports = function(portalConfig, poolConfigs) {
                         }
                     }
                 });
-
-                // sort miners
-                coinStats.miners = sortMinersByHashrate(coinStats.miners);
         
                 var shareMultiplier = Math.pow(2, 32) / algos[coinStats.algorithm].multiplier;
                 coinStats.hashrate = shareMultiplier * coinStats.shares / portalConfig.website.stats.hashrateWindow;
@@ -585,9 +581,6 @@ module.exports = function(portalConfig, poolConfigs) {
                     coinStats.miners[miner].hashrateString = _this.getReadableHashRateString(_workerRate);
                 }
 
-                // sort workers by name
-                coinStats.workers = sortWorkersByName(coinStats.workers);
-
                 delete coinStats.hashrates;
                 delete coinStats.shares;
             });
@@ -628,17 +621,6 @@ module.exports = function(portalConfig, poolConfigs) {
 
   };
 
-      function sortPoolsByName(objects) {
-        var newObject = {};
-        var sortedArray = sortProperties(objects, 'name', false, false);
-        for (var i = 0; i < sortedArray.length; i++) {
-            var key = sortedArray[i][0];
-            var value = sortedArray[i][1];
-            newObject[key] = value;
-        }
-        return newObject;
-    }
-
     function sortBlocks(a, b) {
         var as = parseInt(a.split(":")[2]);
         var bs = parseInt(b.split(":")[2]);
@@ -647,36 +629,6 @@ module.exports = function(portalConfig, poolConfigs) {
         return 0;
     }
 
-    function sortWorkersByName(objects) {
-        var newObject = {};
-        var sortedArray = sortProperties(objects, 'name', false, false);
-        for (var i = 0; i < sortedArray.length; i++) {
-            var key = sortedArray[i][0];
-            var value = sortedArray[i][1];
-            newObject[key] = value;
-        }
-        return newObject;
-    }
-
-    function sortMinersByHashrate(objects) {
-        var newObject = {};
-        var sortedArray = sortProperties(objects, 'shares', true, true);
-        for (var i = 0; i < sortedArray.length; i++) {
-            var key = sortedArray[i][0];
-            var value = sortedArray[i][1];
-            newObject[key] = value;
-        }
-        return newObject;
-    }
-
-    function sortWorkersByHashrate(a, b) {
-        if (a.hashrate === b.hashrate) {
-            return 0;
-        }
-        else {
-            return (a.hashrate < b.hashrate) ? -1 : 1;
-        }
-    }
 
   this.getPoolStats = function(coin, cback) {
     if (coin.length > 0) {
@@ -701,5 +653,4 @@ module.exports = function(portalConfig, poolConfigs) {
       return hashrate.toFixed(2) + byteUnits[i];
     }
   };
-
 };
