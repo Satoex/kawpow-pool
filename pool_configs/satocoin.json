@@ -20,7 +20,7 @@
         "coinPrecision": 8,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 3333,
+            "port": 3334,
             "user": "user1",
             "password": "pass1"
         }
