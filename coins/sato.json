@@ -1,5 +1,5 @@
 {
-    "name": "satocoin",    
+    "name": "sato",    
     "symbol": "SATO",    
     "algorithm": "kawpow",
     
@@ -12,6 +12,5 @@
     "explorerGetTX": "https://satoblockscan.xyz/tx/",
     
     "blockTime": 60,
-    "blockChange": 1
-    
+    "blockChange": 1   
 }
