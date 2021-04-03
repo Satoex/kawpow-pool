@@ -94,7 +94,7 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
 ```javascript
 {
     
-    "poolname": "Raven Coin Pool",
+    "poolname": "KawPoW Coins Pool",
     
     "devmode": false,
     "devmodePayMinimim": 0.25,
