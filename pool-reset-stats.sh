@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ""
-echo "RavenNOMP Stats Resetting..."
+echo "KawPoWNOMP Stats Resetting..."
 echo ""
 
 source ~/.bashrc
