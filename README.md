@@ -280,19 +280,20 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 
     "ports": {
 	"10008": {
-            "diff": 2,
+            "diff": 0.04,
     	    "varDiff": {
-    	        "minDiff": 1,
-    	        "maxDiff": 16,
+    	        "minDiff": 0.02,
+    	        "maxDiff": 8,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
     		"maxJump": 25
     	    }
         },
-        "10032": {
+        "10016": {
+	    "diff": 2,
             "varDiff": {
-                "minDiff": 0.04,
+                "minDiff": 1,
                 "maxDiff": 16,
     	        "targetTime": 10,
     	        "retargetTime": 60,
@@ -300,8 +301,9 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 		"maxJump": 25
             }
         },
-        "10256": {
-	    "varDiff": {
+        "10032": {
+	    "diff": 2000,
+            "varDiff": {
     		"minDiff": 1000,
     		"maxDiff": 9000,
     	        "targetTime": 10,
@@ -309,6 +311,17 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
     	        "variancePercent": 30,
     		"maxJump": 50
     	    }
+        },
+	"10256": {
+	    "diff": 1024000000,
+            "varDiff": {
+                "minDiff": 1024000000,
+                "maxDiff": 2048000000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
+            }
         }
     },
 
