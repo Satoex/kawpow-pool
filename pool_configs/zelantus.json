@@ -1,0 +1,112 @@
+{
+    "enabled": false,
+    "coin": "zelantus.json",
+
+    "address": "ZJrCzYmCM5moCQr1oc6XZiJzaFAPDPaSHJ",
+    
+    "donateaddress": "ZJrCzYmCM5moCQr1oc6XZiJzaFAPDPaSHJ",
+
+    "rewardRecipients": {
+        "ZJrCzYmCM5moCQr1oc6XZiJzaFAPDPaSHJ": 0.5
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "schema": "PROP",
+        "paymentInterval": 300,
+        "minimumPayment": 1,
+        "maxBlocksPerPayment": 10,
+        "minConf": 30,
+        "coinPrecision": 8,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 9618,
+            "user": "user1",
+            "password": "pass1"
+        }
+    },
+
+    "ports": {
+	    "12008": {
+        "diff": 0.04,
+    	    "varDiff": {
+    	    "minDiff": 0.02,
+    	    "maxDiff": 8,
+    	    "targetTime": 10,
+    	    "retargetTime": 60,
+    	    "variancePercent": 30,
+    		  "maxJump": 25
+    	    }
+      },
+      "12016": {
+	      "diff": 2,
+          "varDiff": {
+            "minDiff": 1,
+            "maxDiff": 16,
+    	      "targetTime": 10,
+    	      "retargetTime": 60,
+    	      "variancePercent": 30,
+		        "maxJump": 25
+          }
+      },
+      "12032": {
+	      "diff": 2000,
+          "varDiff": {
+    		    "minDiff": 1000,
+    		    "maxDiff": 9000,
+    	      "targetTime": 10,
+    	      "retargetTime": 60,
+    	      "variancePercent": 30,
+    		    "maxJump": 50
+    	    }
+      },
+	    "12256": {
+	      "diff": 1024000000,
+          "varDiff": {
+            "minDiff": 1024000000,
+            "maxDiff": 2048000000,
+    	      "targetTime": 10,
+    	      "retargetTime": 60,
+    	      "variancePercent": 30,
+		        "maxJump": 25
+          }
+      }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 9618,
+            "user": "user1",
+            "password": "pass1"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "zels",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    },
+
+    "mongoMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "user": "",
+        "pass": "",
+        "database": "zels",
+        "authMechanism": "DEFAULT"
+    }
+
+}
