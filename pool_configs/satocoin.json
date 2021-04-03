@@ -1,20 +1,20 @@
 {
     "enabled": false,
-    "coin": "satocoin.json",
+    "coin": "sato.json",
 
-    "address": "SgYX1F6cZFwMsAFmVvQ3XQ9wP4R5e2E7uN",
+    "address": "SX4D1rwYopB4VGCoJRdtHiPBG9M64y37UD",
     
-    "donateaddress": "SjEAv6jT8HbBktHmgKQKsvfbkcDprTDgVZ",
+    "donateaddress": "SX4D1rwYopB4VGCoJRdtHiPBG9M64y37UD",
 
     "rewardRecipients": {
-        "SjEAv6jT8HbBktHmgKQKsvfbkcDprTDgVZ": 0.5
+        "SX4D1rwYopB4VGCoJRdtHiPBG9M64y37UD": 0.5
     },
 
     "paymentProcessing": {
         "enabled": true,
         "schema": "PROP",
         "paymentInterval": 300,
-        "minimumPayment": 0.25,
+        "minimumPayment": 1,
         "maxBlocksPerPayment": 10,
         "minConf": 30,
         "coinPrecision": 8,
@@ -26,22 +26,22 @@
         }
     },
 
-     "ports": {
-	 "11008": {
-             "diff": 2,
-    	     "varDiff": {
-    	         "minDiff": 1,
-    	         "maxDiff": 16,
-    	         "targetTime": 10,
-    	         "retargetTime": 60,
-    	         "variancePercent": 30,
-    	         "maxJump": 25
-    	     }
-         },
-         "11032": {
-	     "diff": 0.1,
-             "varDiff": {
-                "minDiff": 0.05,
+    "ports": {
+	"11008": {
+            "diff": 0.04,
+    	    "varDiff": {
+    	        "minDiff": 0.02,
+    	        "maxDiff": 8,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    		"maxJump": 25
+    	    }
+        },
+        "11016": {
+	    "diff": 2,
+            "varDiff": {
+                "minDiff": 1,
                 "maxDiff": 16,
     	        "targetTime": 10,
     	        "retargetTime": 60,
@@ -49,23 +49,34 @@
 		"maxJump": 25
             }
         },
-        "11256": {
-	    "diff": 1000,
-	    "varDiff": {
-    	        "minDiff": 500,
+        "11032": {
+	    "diff": 2000,
+            "varDiff": {
+    		"minDiff": 1000,
     		"maxDiff": 9000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
     		"maxJump": 50
     	    }
+        },
+	"11256": {
+	    "diff": 1024000000,
+            "varDiff": {
+                "minDiff": 1024000000,
+                "maxDiff": 2048000000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
+            }
         }
     },
 
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 3333,
+            "port": 3334,
             "user": "user1",
             "password": "pass1"
         }
@@ -74,7 +85,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 3334,
+        "port": 19333,
         "disableTransactions": true
     },
 
@@ -84,7 +95,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "ltc",
+        "database": "rvn",
         "checkPassword": true,
         "autoCreateWorker": false
     },
@@ -94,7 +105,7 @@
         "host": "127.0.0.1",
         "user": "",
         "pass": "",
-        "database": "ltc",
+        "database": "rvn",
         "authMechanism": "DEFAULT"
     }
 
