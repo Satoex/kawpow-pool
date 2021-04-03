@@ -53,8 +53,6 @@ npm audit fix
 npm install sha3
 npm install logger
 
-#./start-pool.sh
-
 echo "Installation completed!"
 
 exit 0
