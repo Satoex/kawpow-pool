@@ -1,20 +1,20 @@
 {
-    "enabled": false,
+    "enabled": true,
     "coin": "ravencoin.json",
 
-    "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj",
+    "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
     
-    "donateaddress": "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz",
+    "donateaddress": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
 
     "rewardRecipients": {
-        "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz": 0.5
+        "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk": 0.5
     },
 
     "paymentProcessing": {
         "enabled": true,
         "schema": "PROP",
         "paymentInterval": 300,
-        "minimumPayment": 0.25,
+        "minimumPayment": 1,
         "maxBlocksPerPayment": 10,
         "minConf": 30,
         "coinPrecision": 8,
@@ -28,20 +28,20 @@
 
     "ports": {
 	"10008": {
-            "diff": 2,
+            "diff": 0.04,
     	    "varDiff": {
-    	        "minDiff": 1,
-    	        "maxDiff": 16,
+    	        "minDiff": 0.02,
+    	        "maxDiff": 8,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
     		"maxJump": 25
     	    }
         },
-        "10032": {
-	    "diff": 0.1,
+        "10016": {
+	    "diff": 2,
             "varDiff": {
-                "minDiff": 0.05,
+                "minDiff": 1,
                 "maxDiff": 16,
     	        "targetTime": 10,
     	        "retargetTime": 60,
@@ -49,16 +49,27 @@
 		"maxJump": 25
             }
         },
-        "10256": {
-	    "diff": 1000,
-	    "varDiff": {
-    	        "minDiff": 500,
+        "10032": {
+	    "diff": 2000,
+            "varDiff": {
+    		"minDiff": 1000,
     		"maxDiff": 9000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
     		"maxJump": 50
-    	   }
+    	    }
+        },
+	"10256": {
+	    "diff": 1024000000,
+            "varDiff": {
+                "minDiff": 1024000000,
+                "maxDiff": 2048000000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
+            }
         }
     },
 
@@ -84,7 +95,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "ltc",
+        "database": "rvn",
         "checkPassword": true,
         "autoCreateWorker": false
     },
@@ -94,7 +105,7 @@
         "host": "127.0.0.1",
         "user": "",
         "pass": "",
-        "database": "ltc",
+        "database": "rvn",
         "authMechanism": "DEFAULT"
     }
 
