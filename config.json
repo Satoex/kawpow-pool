@@ -1,6 +1,6 @@
 {
     
-    "poolname": "KawPow Coins Pool",
+    "poolname": "KawPoW Coins Pool",
     
     "devmode": false,
     "devmodePayMinimim": 0.25,
@@ -10,7 +10,6 @@
     "anonymizeips": true,
     "ipv4bits": 16,
     "ipv6bits": 16,
-    "poolwarningmsg": "",
     
      "defaultCoin": "ravencoin",
     
@@ -18,25 +17,25 @@
     
     "discordtwitterfacebook": "Join our #mining channel on Discord: <a href='https://discord.gg/vzcbVNW' target='_blank'>https://discord.gg/vzcbVNW</a>",
     
-    "pagetitle": "KawPow Coins Pool - 1% Fees Promo - Run by professionals",
+    "pagetitle": "KawPoW Algorithm Pool - 0.5% Fees Promo - Run by professionals",
     "pageauthor": "My Name Is...",
-    "pagedesc": "A reliable, low fee, easy to use mining pool for cryptocurrency! No matter your experience with mining cryptocurrency, we make it easy! Get started mining today!",
-    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Bitcoin,Raven,Ravencoin,Wavi,Wavicoin,Dixicoin,Dixi,QBic,QBicCoin,Easy,Simple,How,To",
+    "pagedesc": "A reliable, low fee, easy to use mining pool for KawPoW algorithm coins! Get started mining today!",
+    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Ravencoin,Zelantus,Sato,Easy,Simple,How,To",
 
-    "btcdonations": "1NRXddRwZSXVQ8NBdgiwv5DsJn2bmHenu6",
-    "ltcdonations": "LcghtmAVSi94FHrn4xbbSd4nFChWy6QUng",
-    "ethdonations": "0x85c5e7db222705da939174cf435d8836423a03e8",
+    "btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
+    "ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
+    "rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
 
     "logger" : {
         "level" : "debug",
-        "file" : "~/nomp-kawpow-pool/logs/nomp_debug.log"
+        "file" : "/home/pool/nomp-kawpow-pool/logs/nomp_debug.log"
     },
 
     "cliHost": "127.0.0.1",
     "cliPort": 17117,
 
     "clustering": {
-        "enabled": true,
+        "enabled": false,
         "forks": "auto"
     },
 
@@ -67,8 +66,8 @@
         "host": "0.0.0.0",
         "port": 80,
         "sslport": 443,
-        "sslkey": "~/nomp-kawpow-pool/certs/privkey.pem",
-        "sslcert": "~/nomp-kawpow-pool/certs/fullchain.pem",
+        "sslkey": "/home/pool/nomp-kawpow-pool/certs/privkey.pem",
+        "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
         "stratumHost": "192.168.0.200",
         "stats": {
             "updateInterval": 5,
@@ -77,7 +76,7 @@
         },
         "adminCenter": {
             "enabled": false,
-            "password": "NOT_WORKING_YET_:P_LESHACAT_CAN_DO_ADMIN_PANEL_FUNCTIONALITY_TOO"
+            "password": "NOT_WORKING_YET"
         }
     },
 
