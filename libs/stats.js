@@ -520,7 +520,7 @@ module.exports = function(portalConfig, poolConfigs) {
                 coinStats.hashrate = shareMultiplier * coinStats.shares / portalConfig.website.stats.hashrateWindow;
                 coinStats.hashrateString = _this.getReadableHashRateString(coinStats.hashrate);
 
-                var _blocktime = coinStats.blockTime;
+                var _blocktime = coinStats.blockTime || 60;
                 var _networkHashRate = parseFloat(coinStats.poolStats.networkSols) * 1.2;
                 var _myHashRate = (coinStats.hashrate / 10000) * 2;
                 var _ttfNetHashRate = coinStats.poolStats.networkSols;
