@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ""
-echo "RavenNOMP Restarting..."
+echo "KawPoWNOMP Restarting..."
 echo ""
 
 source ~/.bashrc
