@@ -12,6 +12,5 @@
     "explorerGetTX": "https://explorer.ravenland.org/tx/",
     
     "blockTime": 60,
-    "blockChange": 1
-    
+    "blockChange": 1   
 }
