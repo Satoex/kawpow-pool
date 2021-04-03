@@ -19,7 +19,7 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
 ### Node Open Mining Portal consists of 3 main modules:
 | Project | Link |
 | ------------- | ------------- |
-| [KawPoWNOMP](https://github.com/EasyX-Community/EasyNOMP) | https://github.com/EasyX-Community/EasyNOMP |
+| [KawPoWNOMP](https://github.com/DirtyHarryDev/nomp-kawpow-pool) | https://github.com/DirtyHarryDev/nomp-kawpow-pool|
 | [Stratum Pool](https://github.com/RavenCommunity/kawpow-stratum-pool) | https://github.com/RavenCommunity/kawpow-stratum-pool |
 | [Node Multihashing](https://github.com/EasyX-Community/node-multi-hashing) | https://github.com/EasyX-Community/node-multi-hashing |
 
@@ -111,18 +111,17 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
     
     "discordtwitterfacebook": "Join our #mining channel on Discord: <a href='https://discord.gg/vzcbVNW' target='_blank'>https://discord.gg/vzcbVNW</a>",
     
-    "pagetitle": "Raven Coin Pool - 1% Fees Promo - Run by professionals",
+    "pagetitle": "KawPoW Algorithm Pool - 0.5% Fees Promo - Run by professionals",
     "pageauthor": "My Name Is...",
-    "pagedesc": "A reliable, low fee, easy to use mining pool for cryptocurrency! No matter your experience with mining cryptocurrency, we make it easy! Get started mining today!",
-    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Bitcoin,Raven,Ravencoin,Wavi,Wavicoin,Dixicoin,Dixi,QBic,QBicCoin,Easy,Simple,How,To",
+    "pagedesc": "A reliable, low fee, easy to use mining pool for KawPoW algorithm coins! Get started mining today!",
+    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Ravencoin,Zelantus,Sato,Easy,Simple,How,To",
 
-    "btcdonations": "1NRXddRwZSXVQ8NBdgiwv5DsJn2bmHenu6",
-    "ltcdonations": "LcghtmAVSi94FHrn4xbbSd4nFChWy6QUng",
-    "ethdonations": "0x85c5e7db222705da939174cf435d8836423a03e8",
+    "btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
+    "ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
 
     "logger" : {
         "level" : "debug",
-        "file" : "~/nomp-kawpow-pool/logs/nomp_debug.log"
+        "file" : "/home/pool/nomp-kawpow-pool/logs/nomp_debug.log"
     },
 
     "cliHost": "127.0.0.1",
@@ -160,8 +159,8 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
         "host": "0.0.0.0",
         "port": 80,
         "sslport": 443,
-        "sslkey": "~/nomp-kawpow-pool/certs/privkey.pem",
-        "sslcert": "~/nomp-kawpow-pool/certs/fullchain.pem",
+        "sslkey": "/home/pool/nomp-kawpow-pool/certs/privkey.pem",
+        "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
         "stratumHost": "192.168.0.200",
         "stats": {
             "updateInterval": 5,
@@ -170,7 +169,7 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
         },
         "adminCenter": {
             "enabled": false,
-            "password": "NOT_WORKING_YET_:P_LESHACAT_CAN_DO_ADMIN_PANEL_FUNCTIONALITY_TOO"
+            "password": "NOT_WORKING_YET"
         }
     },
 
@@ -244,7 +243,7 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
 
 ```
 
-Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wallet address in file ravencoin.json:
+Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wallet address in file ravencoin.json:
 
     cd ~/nomp-kawpow-pool/pool_configs
     nano ravencoin.json
@@ -254,26 +253,25 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
     "enabled": true,
     "coin": "ravencoin.json",
 
-    "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj",
+    "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
     
-    "donateaddress": "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz",
+    "donateaddress": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
 
     "rewardRecipients": {
-        "RL5SUNMHmjXtN1AzCRFQrFEhjnf7QQY7Tz": 0.5,
-        "Ta26x9axaDQWaV2bt2z8Dk3R3dN7gHw9b6": 0
+        "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk": 0.5
     },
 
     "paymentProcessing": {
         "enabled": true,
         "schema": "PROP",
         "paymentInterval": 300,
-        "minimumPayment": 0.25,
+        "minimumPayment": 1,
         "maxBlocksPerPayment": 10,
         "minConf": 30,
         "coinPrecision": 8,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 17117,
+            "port": 8766,
             "user": "user1",
             "password": "pass1"
         }
@@ -288,7 +286,7 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-    		    "maxJump": 25
+    		"maxJump": 25
     	    }
         },
         "10032": {
@@ -298,18 +296,18 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-		        "maxJump": 25
+		"maxJump": 25
             }
         },
         "10256": {
-		    "varDiff": {
-    			"minDiff": 1000,
-    			"maxDiff": 9000,
+	    "varDiff": {
+    		"minDiff": 1000,
+    		"maxDiff": 9000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
-    			"maxJump": 50
-    		}
+    		"maxJump": 50
+    	    }
         }
     },
 
@@ -335,7 +333,7 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "ltc",
+        "database": "rvn",
         "checkPassword": true,
         "autoCreateWorker": false
     },
@@ -345,7 +343,7 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
         "host": "127.0.0.1",
         "user": "",
         "pass": "",
-        "database": "ltc",
+        "database": "rvn",
         "authMechanism": "DEFAULT"
     }
 
@@ -358,13 +356,11 @@ Change "address": "RKopFydExeQXSZZiSTtg66sRAWvMzFReUj", to your pool created wal
     cd ~/nomp-kawpow-pool
     ./pool-start.sh
 
-### Donates for developers easyNOMP
+### Donates for developers KawPoWNOMP
 
 
-BTC: 18TmiWzbMLyf7MvQMcNWh3hUBVrxBgzrWi
+BTC: 1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt
 
-LTC: LX1fUwLVcAaRXvP67ZcqUvjjteaKx1nAvL
-
-ETH/ERC20: 0x52fD0B6847E1D3cEc5600359f24d671FdE2Bc65B
+LTC: LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz
     
 -------
