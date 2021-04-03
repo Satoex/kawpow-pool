@@ -1,0 +1,16 @@
+{
+    "name": "zelantus",    
+    "symbol": "ZELS",    
+    "algorithm": "kawpow",
+    
+    "wallet": "https://github.com/zelantus/MainNet-critical-fix/releases",
+
+    "explorer":"https://satoblockscan.xyz/",
+    
+    "explorerGetBlockJSON": "http://explorer.zelantus.com/api/getrawtransaction?txid=",
+    "explorerGetBlock": "http://explorer.zelantus.com/block/",
+    "explorerGetTX": "http://explorer.zelantus.com/tx/",
+    
+    "blockTime": 60,
+    "blockChange": 1   
+}
