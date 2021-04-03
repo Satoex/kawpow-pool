@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ""
-echo "RavenNOMP Stop..."
+echo "KawPoW Pool Stop..."
 echo ""
 
 source ~/.bashrc
