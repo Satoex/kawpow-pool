@@ -55,7 +55,7 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
     ./ravend
     ./raven-cli getnewaddress
 
-Example output: RKopFydExeQXSZZiSTtg66sRAWvMzFReUj - it is the address of your pool, you need to remember it and specify it in the configuration file pool_configs/ravencoin.json.
+Example output: RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk - it is the address of your pool, you need to remember it and specify it in the configuration file pool_configs/ravencoin.json.
     
     ./raven-cli getaddressesbyaccount ""
     
@@ -118,6 +118,7 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
 
     "btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
     "ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
+    "rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
 
     "logger" : {
         "level" : "debug",
@@ -362,5 +363,7 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 BTC: 1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt
 
 LTC: LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz
+
+RVN: RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk
     
 -------
