@@ -38,7 +38,7 @@
                 <td id="pendingBlocks" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.pending}}</td>
 
                 <td style="text-align:center;vertical-align: middle;">Pool TTF:</td>
-                <td id="poolMaxRound" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].maxRoundTimeString}}</td>
+                <td id="timeToFind" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].timeToFind}}</td>
 
                 <td style="text-align:center;vertical-align: middle;">Hashrate:</td>
                 <td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].poolStats.networkSolsString}}</td>
@@ -60,7 +60,7 @@
                 <td id="confirmedBlocks" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].blocks.confirmed}}</td>
 
                 <td style="text-align:center;vertical-align: middle;">Round Shares:</td>
-                <td id="poolRoundShares" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].currentRoundTimes.shareCount}}</td>
+                <td id="currentRoundShares"style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].shareCountString + ' %'}}</td>
 
                 <td style="text-align:center;vertical-align: middle;">Difficulty:</td>
                 <td style="text-align:center;vertical-align: middle;">{{=Number(Math.round(it.stats.pools[pool].poolStats.networkDiff + 'e' + 4) + 'e-' + 4)}}</td>
