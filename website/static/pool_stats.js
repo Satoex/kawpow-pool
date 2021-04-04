@@ -116,7 +116,8 @@ statsSource.addEventListener('message', function(e) {
     $("#poolWorkers").text(poolName in stats.pools ? stats.pools[poolName].workerCount : 0);
     $("#pendingBlocks").text(poolName in stats.pools ? stats.pools[poolName].blocks.pending : 0);
     $("#confirmedBlocks").text(poolName in stats.pools ? stats.pools[poolName].blocks.confirmed : 0);
-    $("#poolRoundShares").text(poolName in stats.pools ? stats.pools[poolName].currentRoundTimes.shareCount : 0);
+    $("#currentRoundShares").text(poolName in stats.pools ? stats.pools[poolName].shareCountString + ' %' : 0);
+    $("#timeToFind").text(poolName in stats.pools ? stats.pools[poolName].timeToFind : 0);
     var time = stats.time * 1000;
     var avg = pool.averagedHashrate;
     addChartData(poolHashrateChart, poolHashrateChart.data.datasets[0], {t: time, y: hash}, false);
