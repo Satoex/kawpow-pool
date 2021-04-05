@@ -12,8 +12,8 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
 #### Miner Stats<br />
 ![Miner Stats](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/screenshots/minerstats.png)<br /><br />
 
-#### Block Explorer<br />
-![Block Explorer](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/screenshots/blockexplorer.png)<br /><br />
+#### Payments Page<br />
+![Block Explorer](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/screenshots/payment.png)<br /><br />
 
 -------
 ### Node Open Mining Portal consists of 3 main modules:
