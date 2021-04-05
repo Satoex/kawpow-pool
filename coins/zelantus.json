@@ -5,7 +5,7 @@
     
     "wallet": "https://github.com/zelantus/MainNet-critical-fix/releases",
 
-    "explorer":"https://satoblockscan.xyz/",
+    "explorer":"http://explorer.zelantus.com/",
     
     "explorerGetBlockJSON": "http://explorer.zelantus.com/api/getrawtransaction?txid=",
     "explorerGetBlock": "http://explorer.zelantus.com/block/",
