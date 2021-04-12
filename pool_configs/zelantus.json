@@ -27,50 +27,50 @@
     },
 
     "ports": {
-	    "12008": {
-        "diff": 0.04,
+	"12008": {
+            "diff": 0.05,
     	    "varDiff": {
-    	    "minDiff": 0.02,
-    	    "maxDiff": 8,
-    	    "targetTime": 10,
-    	    "retargetTime": 60,
-    	    "variancePercent": 30,
-    		  "maxJump": 25
+    	        "minDiff": 0.025,
+    	        "maxDiff": 1024,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    		"maxJump": 25
     	    }
-      },
-      "12016": {
-	      "diff": 2,
-          "varDiff": {
-            "minDiff": 1,
-            "maxDiff": 16,
-    	      "targetTime": 10,
-    	      "retargetTime": 60,
-    	      "variancePercent": 30,
-		        "maxJump": 25
-          }
-      },
-      "12032": {
-	      "diff": 2000,
-          "varDiff": {
-    		    "minDiff": 1000,
-    		    "maxDiff": 9000,
-    	      "targetTime": 10,
-    	      "retargetTime": 60,
-    	      "variancePercent": 30,
-    		    "maxJump": 50
+        },
+        "12016": {
+	    "diff": 0.10,
+            "varDiff": {
+                "minDiff": 0.05,
+                "maxDiff": 1024,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
+            }
+        },
+        "12032": {
+	    "diff": 0.20,
+            "varDiff": {
+    		"minDiff": 0.10,
+    		"maxDiff": 1024,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+    		"maxJump": 50
     	    }
-      },
-	    "12256": {
-	      "diff": 1024000000,
-          "varDiff": {
-            "minDiff": 1024000000,
-            "maxDiff": 2048000000,
-    	      "targetTime": 10,
-    	      "retargetTime": 60,
-    	      "variancePercent": 30,
-		        "maxJump": 25
-          }
-      }
+        },
+	"12256": {
+	    "diff": 1024000000,
+            "varDiff": {
+                "minDiff": 1024000000,
+                "maxDiff": 20480000000,
+    	        "targetTime": 10,
+    	        "retargetTime": 60,
+    	        "variancePercent": 30,
+		"maxJump": 25
+            }
+        }
     },
 
     "daemons": [
@@ -85,7 +85,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 9619,
         "disableTransactions": true
     },
 
