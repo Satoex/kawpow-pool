@@ -40,8 +40,8 @@
     },
 
     "defaultPoolConfigs": {
-        "blockRefreshInterval": 1000,
-        "jobRebroadcastTimeout": 55,
+        "blockRefreshInterval": 400,
+        "jobRebroadcastTimeout": 30,
         "connectionTimeout": 600,
         "emitInvalidBlockHashes": false,
         "validateWorkerUsername": true,
@@ -70,7 +70,7 @@
         "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
         "stratumHost": "192.168.0.200",
         "stats": {
-            "updateInterval": 5,
+            "updateInterval": 15,
             "historicalRetention": 43200,
             "hashrateWindow": 600
         },
