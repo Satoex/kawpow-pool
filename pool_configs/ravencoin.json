@@ -27,11 +27,12 @@
     },
 
     "ports": {
+    "ports": {
 	"10008": {
-            "diff": 0.04,
+            "diff": 0.05,
     	    "varDiff": {
-    	        "minDiff": 0.02,
-    	        "maxDiff": 8,
+    	        "minDiff": 0.025,
+    	        "maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -39,10 +40,10 @@
     	    }
         },
         "10016": {
-	    "diff": 2,
+	    "diff": 0.10,
             "varDiff": {
-                "minDiff": 1,
-                "maxDiff": 16,
+                "minDiff": 0.05,
+                "maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -50,10 +51,10 @@
             }
         },
         "10032": {
-	    "diff": 2000,
+	    "diff": 0.20,
             "varDiff": {
-    		"minDiff": 1000,
-    		"maxDiff": 9000,
+    		"minDiff": 0.10,
+    		"maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -64,7 +65,7 @@
 	    "diff": 1024000000,
             "varDiff": {
                 "minDiff": 1024000000,
-                "maxDiff": 2048000000,
+                "maxDiff": 20480000000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
