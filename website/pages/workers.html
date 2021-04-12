@@ -1,0 +1,104 @@
+<style>
+#topCharts {
+	padding: 18px;
+}
+#topCharts > div > div > svg {
+	display: block;
+	height: 280px;
+}
+.chartWrapper {
+	border: solid 1px #c7c7c7;
+	border-radius: 5px;
+	padding: 5px;
+        margin-bottom: 18px;
+}
+.chartLabel {
+        font-size: 1.2em;
+        text-align: center;
+        padding: 4px;
+}
+.chartHolder {
+}
+table {
+        width: 100%;
+}
+.header-blue .hero p {
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+}
+.header-blue .hero h1 {
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 1.4;
+}
+.header-blue {
+      background-color: #738bdc;
+      background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+      padding-bottom: 40px;
+}
+.header-blue .action-button, .header-blue .action-button:not(.disabled):active {
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 40px;
+      color: #ebeff1;
+      box-shadow: none;
+      text-shadow: none;
+      padding: .3rem .8rem;
+      background: transparent;
+      transition: background-color 0.25s;
+      outline: none;
+}
+</style>
+
+<div style="margin-top: 10px; min-height: 768px;">
+	<section class="title">
+		<div>
+			<div class="header-blue">
+				<div class="container hero">
+					<div class="row text-center"><br>
+						<div class="col-12 col-lg-12 col-xl-12">
+							<h1 class="display-4"><br><b>Workers Connected to Pools</b></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>&nbsp;<br></div>
+	<div id="topCharts">
+		{{ for(var pool in it.stats.pools) { }}
+			<div class="chartWrapper">
+				<div class="chartLabel" style="text-transform:uppercase">{{=it.stats.pools[pool].name}}</div>
+				<div class="chartHolder">
+					<table class="pure-table">
+						<thead>
+						<tr>
+						<th>Address</th>
+						<th>Shares</th>
+						<th>Invalid shares</th>
+						<th>Efficiency</th>
+						<th>Hashrate</th>
+						</tr>
+						</thead>
+						{{ for(var worker in it.stats.pools[pool].workers) { }}
+							{{ let workerInfo = worker.split('.'); }}
+							{{ if (workerInfo.length === 2) { }}
+								{{ let worker = workerInfo[0]; }}
+							{{ } }}
+							{{var workerstat = it.stats.pools[pool].workers[worker];}}
+							<tr class="pure-table-odd">
+							<td><a href="/workers/{{=worker}}">{{=worker}}</a></td>
+							<td>{{=Math.floor(workerstat.shares)}}</td>
+							<td>{{=Math.floor(workerstat.invalidshares)}}</td>
+							<td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+							<td>{{=workerstat.hashrateString}}</td>
+							</tr>
+						{{ } }}
+					</table>
+				</div>
+			</div>
+		{{ } }}
+	</div>
+</div>

@@ -1,0 +1,311 @@
+<style>
+    #boxWelcome{
+        background-color: #0eafc7;
+        color: white;
+        margin: 18px;
+    }
+    #logoImg{
+        height: 285px;
+        margin: 55px;
+    }
+    #welcomeText{
+        font-size: 2.7em;
+        margin: 50px 18px 10px 18px;
+    }
+    #welcomeItems{
+        list-style-type: none;
+        font-size: 1.3em;
+        padding: 0 !important;
+        margin: 0 0 0 18px !important;
+    }
+    #welcomeItems > li{
+        margin: 30px !important;
+    }
+    #boxesLower {
+        margin: 0 9px;
+    }
+    #boxesLower > div {
+        display: flex;
+    }
+    #boxesLower > div > div {
+        flex: 1 1 auto;
+        margin: 0 9px 18px 9px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .boxLowerHeader{
+        font-size: 1.3em;
+        margin: 0 0 5px 10px;
+    }
+
+
+    #boxStatsLeft{
+        background-color: #b064e1;
+    }
+    #boxStatsRight{
+        background-color: #10bb9c;
+    }
+    .boxStats{
+        color: white;
+    }
+    .boxStatsList{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        opacity: 0.77;
+        margin-bottom: 5px;
+        flex: 1 1 auto;
+        align-content: center;
+    }
+    .boxStatsList i.fa{
+        height: 15px;
+        width: 33px;
+        text-align: center;
+    }
+    .boxStatsList > div{
+        padding: 5px 20px;
+    }
+    .boxStatsList > div > div{
+        padding: 3px;
+    }
+
+    .header-blue .hero p {
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    .header-blue .hero h1 {
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .header-blue {
+      background-color: #738bdc;
+      background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+      padding-bottom: 40px;
+    }
+
+    .header-blue .action-button, .header-blue .action-button:not(.disabled):active {
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 40px;
+      color: #ebeff1;
+      box-shadow: none;
+      text-shadow: none;
+      padding: .3rem .8rem;
+      background: transparent;
+      transition: background-color 0.25s;
+      outline: none;
+    }
+
+    .features-boxed {
+      color: #313437;
+
+    }
+
+    .features-boxed p {
+      color: #7d8285;
+    }
+
+    .features-boxed h2 {
+      font-weight: bold;
+      margin-bottom: 40px;
+      padding-top: 40px;
+      color: inherit;
+    }
+
+    .features-boxed .intro {
+      color: #313437;
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .features-boxed .intro p {
+      margin-bottom: 0;
+    }
+
+    .features-boxed .features {
+      padding: 50px 0;
+    }
+
+    .features-boxed .item {
+      text-align: center;
+    }
+
+    .features-boxed .item .box {
+      text-align: center;
+      padding: 30px;
+      background-color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .header-blue .action-button:hover {
+      color: #fff;
+    }
+
+    .features-boxed .item .icon {
+      font-size: 60px;
+      background: -webkit-linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 20px;
+      margin-bottom: 35px;
+    }
+
+
+    @media(max-width:768px) {
+      .header-button {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media(min-width:992px) {
+      .header-blue {
+        padding-top: 40px;
+        padding-bottom: 70px;
+        line-height: 1.2;
+      }
+    }
+
+    @media(max-width:992px) {
+      .header-blue {
+        padding-top: 40px;
+      }
+    }
+
+
+</style>
+<section class="title">
+  <div>
+      <div class="header-blue">
+          <div class="container hero">
+            <div class="row text-center">
+              <div class="col-12 col-lg-12 col-xl-12">
+                <h1 class="display-4" style="margin:0 15px 5px 0;">Welcome To KawPoW Algorithm Pool!</h1>
+                <p>A KawPoW algorithm mining pool made by miners, for miners. No matter if you are new to mining, or experienced.<br>Our goal is to make a fast reliable kawpow algorithm mining pool, that is easy for everyone to use!</p>
+                <div class="row justify-content-center">
+                  <div class="col-lg-4 col-md-8">
+                    <a class="btn btn-light btn-lg action-button header-button" href="/getting_started">Get Started Now!</a>
+                  </div>
+                  <div class="col-lg-4 col-md-8">
+                    <a class="btn btn-light btn-lg action-button" href="/learn_more">Want To Learn More?</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-boxed">
+      <div class="container-fluid">
+          <div class="intro">
+              <h4 class="text-center display-4" style="font-size:40px;padding:40px 0 0 0;margin:0;">Our Pool Features</h4>
+          </div>
+          <div class="row justify-content-center features pb-1">
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-tachometer-alt icon"></i>
+                      <h3 class="name">We Are Fast</h3>
+                      <p class="description">Speed is key when it comes to mining. So we chose hardware that can provide just that! Giving our users the best connection possible!</p>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-shield-alt icon"></i>
+                      <h3 class="name">We Are Protected</h3>
+                      <p class="description">Don&#39;t like downtime? Neither do we! So we take measures to protect our site from any malicious attacks that could disrupt mining!</p>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-percent icon"></i>
+                      <h3 class="name">We Have Low Fees</h3>
+                      <p class="description">We&#39;re not here to make profit. So we keep our fees low! Why have any at all you may ask? We gotta pay bills for the pool hosting somehow.</p>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-thumbs-up icon"></i>
+                      <h3 class="name">It&#39;s All Easy To Use</h3>
+                      <p class="description">No matter your experience, you can mine using our pool! We make make mining easy! Head over to <a href="getting_started">Getting Started</a> to learn more!</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="stats">
+  <div class="features-boxed">
+      <div class="container-fluid">
+          <div class="intro">
+              <h4 class="text-center display-4" style="font-size:40px;padding:40px 0 0 0;margin:0;">Current Global Stats</h4>
+          </div>
+          <div class="row justify-content-center features">
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fa fa-users icon"></i>
+                      <h3 class="name">Total Miners</h3>
+                      {{ var count = 0; }}
+                      {{ for(var pool in it.stats.pools) { }}
+                        {{ count += it.stats.pools[pool].minerCount; }}
+                      {{ } }}
+                      <p class="display-4 text-dark mt-0" style="font-size:40px;">{{=count}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-server icon"></i>
+                      <h3 class="name">Total Workers</h3>
+                      {{ var count = 0; }}
+                      {{ for(var pool in it.stats.pools) { }}
+                        {{ count += it.stats.pools[pool].workerCount; }}
+                      {{ } }}
+                      <p class="display-4 text-dark mt-0" style="font-size:40px;">{{=count}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fas fa-chart-line icon"></i>
+                      <h3 class="name">Total Hashrate</h3>
+                      {{ var hashrate = 0; }}
+                      {{ for(var pool in it.stats.pools) { }}
+                        {{ hashrate += it.stats.pools[pool].hashrate; }}
+                      {{ } }}
+                      {{ var byteUnits = [' KH/s', ' MH/s', ' GH/s', ' TH/s', ' PH/s']; }}
+                      {{ var i = -1; }}
+                      {{ do { }}
+                        {{ hashrate = hashrate / 1024; }}
+                        {{ i++; }}
+                      {{ } while (hashrate > 1024); }}
+                      <p class="display-4 text-dark mt-0" style="font-size:40px;">{{=Math.round(hashrate) + byteUnits[i]}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 item">
+                  <div class="box shadow"><i class="fa fa-database icon"></i>
+                      <h3 class="name">Pools Hosted</h3>
+                      <p class="display-4 text-dark mt-0" style="font-size:40px;">{{=Object.keys(it.stats.pools).length}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<script>
+    $(function() {
+        statsSource.addEventListener('message', function (e) {
+            var stats = JSON.parse(e.data);
+            for (algo in stats.algos) {
+                $('#statsMiners' + algo).text(stats.algos[algo].miners);
+                $('#statsWorkers' + algo).text(stats.algos[algo].workers);
+                $('#statsHashrate' + algo).text(stats.algos[algo].hashrateString);
+            }
+            for (var pool in stats.pools) {
+                $('#statsMiners' + pool).text(stats.pools[pool].minerCount);
+                $('#statsWorkers' + pool).text(stats.pools[pool].workerCount);
+                $('#statsHashrate' + pool).text(stats.pools[pool].hashrateString);
+            }
+        });
+    });
+</script>

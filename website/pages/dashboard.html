@@ -1,0 +1,101 @@
+<style>
+#topCharts {
+  padding: 18px;
+}
+#topCharts > div > div > svg {
+  display: block;
+  height: 280px;
+}
+.chartWrapper {
+  border: solid 1px #c7c7c7;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 18px;
+}
+.chartLabel {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 4px;
+}
+.chartHolder {
+}
+table {
+ width: 100%;
+}
+.header-blue .hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.header-blue .hero h1 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.header-blue {
+  background-color: #738bdc;
+  background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+  padding-bottom: 40px;
+}
+.header-blue .action-button, .header-blue .action-button:not(.disabled):active {
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 40px;
+  color: #ebeff1;
+  box-shadow: none;
+  text-shadow: none;
+  padding: .3rem .8rem;
+  background: transparent;
+  transition: background-color 0.25s;
+  outline: none;
+}
+</style>
+
+<div style="margin-top: 10px; min-height: 768px;">
+	<section class="title">
+		<div>
+			<div class="header-blue">
+				<div class="container hero">
+					<div class="row text-center"><br>
+						<div class="col-12 col-lg-12 col-xl-12">
+							<h1 class="display-4"><br><b>Miners Dashboard</b></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>&nbsp;<br></div>
+	<div class="container-fluid pt-3"><br>
+		<div class="row col pb-0 justify-content-center">
+			<p class="lead mb-1">Look Up Address</p>
+		</div>
+		<div class="row pl-4 mb-0 justify-content-center">
+			<form id="searchForm">
+				<div class="input-group">
+				<input type="text" id="searchBar" class="form-control" placeholder="Wallet Address" aria-label="Wallet Address" aria-describedby="basic-addon2" style="min-width: 500px;">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" id="searchButton" type="submit"><i class="fa fa-search"></i> Lookup</button>
+					</div>
+				</div>
+			</form>
+		</div><br>
+		<div class="row">
+			<div class="col-md-12 table-responsive">
+				<table id="walletTable" class="table table-bordered" style="width:100%">
+					<thead>
+						<tr>
+						<th scope="col"><i class="fa fa-wallet"></i> Wallets</th>
+						<th><i class="fa fa-eraser"></i> Actions</th>
+						</tr>
+					</thead>
+					<tbody id="walletTableBody"></tbody>
+				</table>
+			</div>
+		</div><br>
+	</div>
+</div>
+<script>
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/dashboard.js';
+</script>

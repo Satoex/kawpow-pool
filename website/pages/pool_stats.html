@@ -1,0 +1,332 @@
+<style>
+.chartLabel {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 300;
+}
+.chartHolder {
+	min-height: 300px;
+}
+.header-blue .hero p {
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+}
+.header-blue .hero h1 {
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 1.4;
+}
+.header-blue {
+	background-color: #738bdc;
+	background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+	padding-bottom: 40px;
+}
+.card-blue {
+	background-color: #738bdc;
+	background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+	color: #fff;
+}
+.header-blue .action-button, .header-blue .action-button:not(.disabled):active {
+	border: 1px solid rgba(255,255,255,0.7);
+	border-radius: 40px;
+	color: #ebeff1;
+	box-shadow: none;
+	text-shadow: none;
+	padding: .3rem .8rem;
+	background: transparent;
+	transition: background-color 0.25s;
+	outline: none;
+}
+.widget-blue {
+  background-color: #36a3f7;
+  color: #fff;
+}
+</style>
+
+<div style="margin-top: 10px; min-height: 768px;">
+	<section class="title">
+		<div>
+			<div class="header-blue">
+				<div class="container hero">
+					<div class="row text-center"><br>
+						<div class="col-12 col-lg-12 col-xl-12">
+							<h1 class="display-4"><br><b>{{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}} Pool Stats Page</b></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>&nbsp;<br></div>
+	{{ for(var pool in it.stats.pools) { }}
+	{{ if(pool !== it.stats.coin) continue; }}
+	<div class="container-fluid p-4">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-widget widget-user-2 shadow">
+					<div class="widget-user-header widget-blue">
+						<div class="widget-user-image">
+							<img class="img-circle elevation-2" src="/static/icons/{{=String(it.stats.coin)}}.png" alt="Coin Logo">
+						</div>
+						<h3 class="widget-user-username"><b>{{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}}</b></h3>
+						<h6 class="widget-user-desc">Ticker: {{=it.stats.pools[pool].symbol}}</h6>
+					</div>
+					<div class="card-footer p-0">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<div class="nav-link">
+	  							<h6 class="float-left style="font-size: 16px;">Network Hashrate</h6>
+								<span id="netHash" class="float-right badge bg-info" style="font-size: 16px;">{{=it.stats.pools[pool].poolStats.networkSolsString}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Network Difficulty</h6>
+								<span id="netDiff" class="float-right badge bg-info" style="font-size: 16px;">{{=Number(Math.round(it.stats.pools[pool].poolStats.networkDiff + 'e' + 4) + 'e-' + 4)}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+							{{ var total = 0.0; }}
+							{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+							{{ for (var r in rewardRecipients) { }}
+							{{ total += rewardRecipients[r]; }}
+							{{ } }}
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Pool Fee</h6>
+								<span class="float-right badge bg-info" style="font-size: 16px;">{{=total}} %</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+								<h6 class="float-left style="font-size: 16px;">Ports</h6>
+								{{ for(var pool in it.poolsConfigs) { }}
+								{{ if(pool !== it.stats.coin) continue; }}
+								<span class="float-right badge bg-info" style="font-size: 16px;">{{=Object.keys(it.poolsConfigs[pool].ports)}}</span>
+								{{ break; }}
+								{{ } }}
+								<br />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-widget widget-user-2 shadow">
+					<div class="widget-user-header widget-blue">
+						<div class="widget-user-image">
+							<img class="img-circle elevation-2" src="/static/icons/{{=String(it.stats.coin)}}.png" alt="Coin Logo">
+						</div>
+						<h3 class="widget-user-username"><b>Pool Information</b></h3>
+						<h6 class="widget-user-desc text-light">{{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}}</h6>
+					</div>
+					<div class="card-footer p-0">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Miners</h6>
+								<span id="poolMiners" class="float-right badge bg-success" style="font-size: 16px;">{{=it.stats.pools[pool].minerCount}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Workers</h6>
+								<span id="poolWorkers" class="float-right badge bg-success" style="font-size: 16px;">{{=it.stats.pools[pool].workerCount}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Pool Hashrate</h6>
+								<span id="poolHashRate" class="float-right badge bg-success" style="font-size: 16px;">{{=it.stats.pools[pool].hashrateString}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+								<h6 class="float-left style="font-size: 16px;">Total Paid</h6>
+								<span id="totalPaid" class="float-right badge bg-success" style="font-size: 16px;">{{=Number(it.stats.pools[pool].poolStats.totalPaid).toFixed(3) + " " + it.stats.pools[pool].symbol}}</span>
+								<br />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-widget widget-user-2 shadow">
+					<div class="widget-user-header widget-blue">
+						<div class="widget-user-image">
+							<img class="img-circle elevation-2" src="/static/icons/{{=String(it.stats.coin)}}.png" alt="Coin Logo">
+						</div>
+						<h3 class="widget-user-username"><b>General Information</b></h3>
+						<h6 class="widget-user-desc">{{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}}</h6>
+					</div>
+					<div class="card-footer p-0">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<div class="nav-link">
+	  							<h6 class="float-left style="font-size: 16px;">Pool TTF</h6>
+								<span id="timeToFind" class="float-right badge bg-warning" style="font-size: 16px;">{{=it.stats.pools[pool].timeToFind}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Current Effort</h6>
+								<span id="currentEffort" class="float-right badge bg-warning" style="font-size: 16px;">{{=Number(it.stats.pools[pool].currEffort * 100).toFixed(2)}} %</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Blocks Found Every</h6>
+								<span id="luckHour" class="float-right badge bg-warning" style="font-size: 16px;">{{=it.stats.pools[pool].luckHours}} Hours</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+								<h6 class="float-left style="font-size: 16px;">Valid Shares</h6>
+								<span id="luckHour" class="float-right badge bg-warning" style="font-size: 16px;">{{=it.stats.pools[pool].poolStats.validShares}}</span>
+								<br />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-widget widget-user-2 shadow">
+					<div class="widget-user-header widget-blue">
+						<div class="widget-user-image">
+							<img class="img-circle elevation-2" src="/static/icons/{{=String(it.stats.coin)}}.png" alt="Coin Logo">
+						</div>
+						<h3 class="widget-user-username"><b>Blocks Information</b></h3>
+						<h6 class="widget-user-desc">{{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}}</h6>
+					</div>
+					<div class="card-footer p-0">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<div class="nav-link">
+	  							<h6 class="float-left style="font-size: 16px;">Pending Blocks</h6>
+								<span id="pendingBlocks" class="float-right badge bg-primary" style="font-size: 16px;">{{=it.stats.pools[pool].blocks.pending}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+								<h6 class="float-left style="font-size: 16px;">Confirmed Blocks</h6>
+								<span id="confirmedBlocks" class="float-right badge bg-primary" style="font-size: 16px;">{{=it.stats.pools[pool].blocks.confirmed}}</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+  								<h6 class="float-left style="font-size: 16px;">Block Time</h6>
+								<span class="float-right badge bg-primary" style="font-size: 16px;">{{=it.stats.pools[pool].blockTime}} sec</span>
+								<br />
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="nav-link">
+								<h6 class="float-left style="font-size: 16px;">Last Block Found</h6>
+								<span id="lastBlockTime" class="float-right badge bg-primary" style="font-size: 16px;">{{=it.stats.pools[pool].lastBlockDate}}</span>
+								<br />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid p-4">
+		<div class="row">
+			<div class="col-md-12 pl-0 pr-0">
+				<table class="table table-bordered table-responsive-lg">
+					<tbody>
+					<tr>
+					<td colspan="12" style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} Donations: {{=(it.poolsConfigs[pool].donateaddress||'none')}}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		{{ break; }}
+		{{ } }}
+		<div class="row">&nbsp;<br></div>
+		<div class="row justify-content-center">
+			<div class="col-md-12 chartWrapper">
+				<div class="card">
+					<div class="card-header widget-blue">
+						<h3 class="card-title"><b>Hashrate History</b></h3>
+						<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-minus"></i>
+						</button>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="chart">
+						<canvas id="poolHashChart" style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">&nbsp;<br /></div>
+		<div class="row justify-content-center">
+			<div class="col-md-12 chartWrapper">
+				<div class="card">
+					<div class="card-header widget-blue">
+						<h3 class="card-title"><b>Pending Block History</b></h3>
+						<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-minus"></i>
+						</button>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="chart">
+						<canvas id="blockChart" style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">&nbsp;<br /></div>
+		<div class="row justify-content-center">
+			<div class="col-md-12 chartWrapper">
+				<div class="card">
+					<div class="card-header widget-blue">
+						<h3 class="card-title"><i class="fa fa-users"></i>&nbsp;<b>Worker History</b></h3>
+						<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-minus"></i>
+						</button>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="chart">
+						<canvas id="poolWorkerChart" style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var poolName = "{{=it.stats.coin}}";
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stat_tracker.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/methods.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/pool_stats.js';
+</script>

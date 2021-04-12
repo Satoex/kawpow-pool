@@ -1,0 +1,244 @@
+<style>
+.highlight-top {
+  background-color: #738bdc;
+  background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+  margin-top: -15px;
+  padding-bottom: 15px;
+}
+.highlight-blue .buttons {
+  text-align: center;
+}
+.highlight-blue .buttons .btn-primary, .highlight-blue .buttons .btn-primary:active {
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 6px;
+  color: #ebeff1;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 14px 24px;
+  background: transparent;
+  transition: background-color 0.25s;
+}
+#startedHolder {
+  background: #212529;
+}
+</style>
+
+<div class="highlight-blue highlight-top pt-5 pb-5">
+	<div class="container-fluid"><br>
+		<div class="intro text-light">
+			<h2 class="text-center">New? Don&#39;t Know Where To Start?</h2>
+			<p class="text-center">Don&#39;t worry! We got you covered! Click below to learn more about cryptocurrency mining, and how you can get started today!</p>
+		</div>
+		<div class="buttons">
+			<a class="btn btn-primary" role="button" href="/learn_more">Learn More About Mining!</a>
+		</div>
+	</div>
+</div>
+
+<div class="highlight-blue bg-dark pt-3 pb-2">
+		<div class="container">
+			<div class="intro text-light">
+			<h2 class="text-center" style="margin:0 0 25px;">Know What You&#39;re Doing?</h2>
+			<p class="text-center">Get started with our pool by using the simple configuration tool we provided below!</p>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="container">
+	<table class="table table-bordered">
+		<thead class="highlight-top">
+			<tr>
+			<th colspan="2" class="text-center text-light"><h3><b>Miner String Generator</b></h3></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<td><p class="mt-2 mb-0">Miner</p></td>
+			<td>
+			<select id="minerSelectBox" class="custom-select custom-select-md" style="width:100%;">
+				<optgroup label="Popular Mining Software">
+					<option value="t-rex" selected>T-Rex (NVIDIA)</option>
+					<option value="teamredminer">Team Red Miner (AMD)</option>
+				</optgroup>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<td><p class="mt-2 mb-0">Type Of Rig</p></td>
+			<td>
+			<select id="hashSelectBox" class="custom-select custom-select-md" style="width:100%;">
+				<optgroup label="Number of GPU's">
+					<option value="gpu1" selected>1-2 GPU (under 30 MH/s)</option>
+					<option value="gpu2">2-4 GPU (30 MH/s - 60 MH/s))</option>
+					<option value="gpu3">4-6 GPU (60 MH/s +)</option>
+				</optgroup>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<td><p class="mt-2 mb-0">Operating System</p></td>
+			<td>
+			<select id="osSelectBox" class="custom-select custom-select-md" style="width:100%;">
+				<optgroup label="Your Mining OS">
+					<option value="linux" selected>Linux</option>
+					<option value="windows">Windows</option>
+					<option value="nice">Nicehash</option>
+				</optgroup>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<td><p class="mt-2 mb-0">Select Coin</p></td>
+			<td>
+			<select id="coinSelectBox" class="custom-select custom-select-md" style="width:100%;">
+				<optgroup label="Available Coins">
+					{{for(pool in it.stats.pools) { }}
+					<option{{=it.portalConfig.defaultCoin === pool ? ' selected ' : ' '}}value="{{=pool + (it.poolsConfigs[pool].coin.algorithm === 'kawpow' ? '_cpu' : '')}}">{{=pool.charAt(0).toUpperCase() + pool.slice(1)}}</option>
+					{{ } }}
+				</optgroup>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<td><p class="mt-2 mb-0" data-toggle="tooltip" data-placement="left" title="Optional">Wallet<small><sup>*</sup></small></p></td>
+			<td><input id="walletInputBox" class="form-control my-0" type="text" placeholder="Wallet Address" aria-label="Wallet Address" style="width:100%;" /></td>
+			<tr>
+			<td><p class="mt-2 mb-0" data-toggle="tooltip" data-placement="left" title="Optional">Rig Name<small><sup>*</sup></small></p></td>
+			<td><input id="rigInputBox" class="form-control my-0" type="text" placeholder="Rig Name" aria-label="Rig Name" style="width:100%;" /></td>
+			</tr>
+			</tr>
+			<tr>
+			<td><p class="mt-2 mb-0">Nicehash</p></td>
+			<td><p class="mt-2 mb-0">RAVENCOIN : Stratum = kawpow.alphax.pro:10256 / User = WALLET_ADDRESS / Password = x<br>SATO : Stratum = kawpow.alphax.pro:11256 / User = WALLET_ADDRESS / Password = x<br>ZELANTUS : Stratum = kawpow.alphax.pro:11256 / User = WALLET_ADDRESS / Password = x</p></td>
+			</tr>
+			<tr>
+			<td colspan="2" style="text-align: center;">
+			{{ var info = []; }}
+				{{ for(var pool in it.poolsConfigs) {
+					info.push({
+						coin: it.poolsConfigs[pool].coin,
+						algo: it.poolsConfigs[pool].coin.algorithm,
+						ports: it.poolsConfigs[pool].ports,
+						host: it.portalConfig.website.stratumHost
+					});
+				}}
+			{{ } }}
+			{{ info = JSON.stringify(info).replace(/"/g, '&quot;'); }}
+			<a id="generateConfig" href="#" data-info="{{=info}}" class="btn btn-dark w-100 bg-success" type="button">Generate</a>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2" style="text-align: center;">
+			<div class="input-group-append">
+				<input id="generatedConfigOutput" type="text" class="form-control" style="text-align:center;" value="Donate: t-rex.exe -a kawpow -o stratum+tcp://{{=it.portalConfig.website.stratumHost}}:10008 -u RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk -p x" aria-describedby="basic-addon2" readonly>
+				<div class="input-group-append">
+					<span class="input-group-text" id="copyButton"><button class="btn btn-info w-100" type="button" data-toggle="popover" data-content="Copied To Clipboard!"><i class="fa fa-clipboard"></i></button></span>
+				</div>
+			</div>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<script>
+	$("[data-toggle=tooltip").tooltip();
+	$('#coinSelectBox').on('change', function (e) {
+		var optionSelected = $("option:selected", this);
+		var valueSelected = this.value;
+		console.log(valueSelected);
+	});
+	$('#generateConfig').click(function(event) {
+		event.preventDefault();
+		generate($(this).data('info'));
+		return false;
+	});
+	$('#copyButton').click(function(event) {
+		event.preventDefault();
+		copyToClipboard();
+		return false;
+	});
+	var generate =  function(info) {
+		var raw = "{0}{2}{1} -a {3} -o stratum+tcp://{{=it.portalConfig.website.stratumHost}}:{4} -u {5}.{6} -p x";
+		var miner = $('#minerSelectBox').val();
+		var os = $('#osSelectBox').val();
+		var hashtype = $('#hashSelectBox').val();
+		var coin = $('#coinSelectBox').val().replace('_cpu', '');
+		console.log(coin);
+		var wallet = $('#walletInputBox').val() || "<WALLET_ADDRESS>";
+		var rig = $('#rigInputBox').val() || "rig01";
+		var coinData = info.filter(x => x.coin.name === coin)[0];
+		if(coinData) {
+			var symbol = coinData.coin.symbol;
+			var algo = coinData.algo;
+			if (hashtype === "gpu1") {
+				var port = Object.keys(coinData.ports)[0];
+			}
+			if (hashtype === "gpu2") {
+				var port = Object.keys(coinData.ports)[1];
+			}
+			if (hashtype === "gpu3") {
+				var port = Object.keys(coinData.ports)[2];
+			}
+			$('#generatedConfigOutput').val(raw.format(os.startsWith('linux') ? './' : '', os.startsWith('windows') ? '.exe' : '', miner, algo, port, wallet, rig));
+		} else {
+			$('#generatedConfigOutput').val("Something Went Wrong! Could Not Generate Configuration!");
+		}
+	};
+	function copyToClipboard() {
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val($('#generatedConfigOutput').val()).select();
+		document.execCommand("copy");
+		$temp.remove();
+	}
+	function showCoinConfig(info) {
+		var htmlKeys = '<div class="coinInfoData">Algorithm:</div>';
+		var htmlValues = '<div class="coinInfoData">' + info.algo + '</div>';
+		for (var port in info.ports) {
+			htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
+			htmlValues += '<div class="coinInfoData">stratum+tcp://' + info.host + ':' + port + '</div>';
+		}
+		if (info.coin)
+		$('#coinInfoUsername').text('your ' + info.coin.name + ' wallet address');
+		else
+		$('#coinInfoUsername').text('your public key');
+		$('.coinInfoData').remove();
+		$('#coinInfoRowKeys').append(htmlKeys);
+		$('#coinInfoRowValues').append(htmlValues);
+	}
+	$('#coinGlowTrigger').click(function(event) {
+		event.preventDefault();
+		$('.menuList').addClass('glow');
+		setTimeout(function() {
+			$('.menuList').removeClass('glow');
+		}, 200);
+        	return false;
+	});
+	 $('.poolOption').click(function(event) {
+		event.preventDefault();
+		showCoinConfig($(this).data('info'));
+		$('#coinInfoBackground,#coinInfo').removeClass('hidden');
+		$('#coinInfoBackground').css('opacity', 0.7);
+		return false;
+	});
+	$('#coinInfoBackground,#coinInfoClose').click(function(event) {
+		event.preventDefault();
+		$('#coinInfoBackground,#coinInfo').addClass('hidden');
+		$('#coinInfoBackground').css('opacity', 0.0);
+		return false;
+	});
+	$('#nompAppDownload').click(function(event) {
+		event.preventDefault();
+		alert('KawPoW App development still in progress...');
+		return false;
+	});
+	String.prototype.format = function () {
+		var args = [].slice.call(arguments);
+		return this.replace(/(\{\d+\})/g, function (a) {
+			return args[+(a.substr(1,a.length-2))||0];
+		});
+	};
+</script>

@@ -1,0 +1,248 @@
+<style>
+.header-blue .hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.header-blue .hero h1 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.header-blue {
+  background-color: #738bdc;
+  background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+  padding-bottom: 40px;
+}
+.header-blue .action-button, .header-blue .action-button:not(.disabled):active {
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 40px;
+  color: #ebeff1;
+  box-shadow: none;
+  text-shadow: none;
+  padding: .3rem .8rem;
+  background: transparent;
+  transition: background-color 0.25s;
+  outline: none;
+}
+#bottomNotes {
+  display: block;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 18px;
+}
+#topPool {
+  padding-top: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+#topPool>div>div>svg {
+  display: block;
+  height: 280px;
+}
+.poolWrapper {
+  border: solid 1px #c7c7c7;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 18px;
+}
+.poolLabel {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 4px;
+}
+.poolMinerTable {}
+table {
+  width: 100%;
+}
+.effort1 {
+  color: #28a745;
+}
+.effort2 {
+  color: #ffc107;
+}
+.effort3 {
+  color: #dc3545;
+}
+.effort4 {
+  color: #000000;
+}
+.vmiddle { vertical-align: middle; }
+.vhmiddle { vertical-align: middle; text-align: -webkit-center; }
+.tableHeaderStyle { vertical-align: middle; text-align: -webkit-center; font-size: 14px; color: black; font-size: 16px; color: black; padding: 0 0 0 0; margin: 0 0 0 0; }
+.tableRowStyle { vertical-align: middle; text-align: -webkit-center; font-size: 14px; color: black; padding: 0 0 0 0; margin: 0 0 0 0; height:25px; line-height:0px; }
+</style>
+
+<div style="margin-top: 10px; min-height: 768px;">
+	<section class="title">
+  		<div>
+    			<div class="header-blue">
+				<div class="container hero">
+					<div class="row text-center"><br>
+					<div class="col-12 col-lg-12 col-xl-12">
+					<h1 class="display-4"><br><b>Payments Overview Page</b></h1>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div>&nbsp;<br></div>
+	{{ var sortedPools = Object.keys(it.stats.pools); }}
+	{{ sortedPools.sort(function(a, b) { return a.workerCount - b.workerCount; }); }}
+	<center>
+		<div class="col-6 table-responsive">
+			<table class="table table-bordered" style="width:100%">
+				<thead>
+				<tr>
+				<th class="vmiddle" style="width: 200px;"><i class="fa fa-history"></i> Payment History For</th>
+				<th class="vmiddle">
+				<select class="form-control" id="coinSelect" style="width:100%;">
+				<option class="btn btn-primary dropdown-toggle" value="all" id="coinDropDown" data-toggle="dropdown" aria-haspopup="true">
+				All Coins
+				</option>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+				{{ for(var i = 0; i < sortedPools.length; i++) { }}
+				<option class="dropdown-item" value="{{=sortedPools[i]}}">{{=sortedPools[i].charAt(0).toUpperCase() + sortedPools[i].slice(1)}}</option>
+				{{ } }}
+				</div>            
+				</select>
+				</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				<th class="vmiddle" width="200px"><i class="fa fa-hourglass-half"></i> Pending Blocks:</th>
+				<td id="tdHistoryPending" class="vhmiddle tdHistoryPending"></td>
+				</tr>
+				<tr>
+				<th class="vmiddle"><i class="fa fa-check"></i> Confirmed Blocks:</th>
+				<td id="tdHistoryConfirmed" class="vhmiddle tdHistoryConfirmed"></td>
+				</tr>
+				<tr>
+				<th class="vmiddle"><i class="fa fa-money"></i> Paid:</th>
+				<td id="tdHistoryPaid" class="vhmiddle tdHistoryPaid"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>&nbsp;<br /><br /></div>
+		<h4 class="display-4 ml-3 mt-0 mb-3" style="font-size: 24px;"><b>Payments Made By Pool</b></h4>
+	</center>
+	<fieldset>
+		<form action="#" class="form-group" method="post">
+			<div class="col-md-12 table-responsive">
+				<table id="blockTable" class="table table-bordered table-hover" style="width:100%">
+					<thead>
+					<tr>
+					<th class="vhmiddle tableHeaderStyle">Coin</th>
+					<th class="vhmiddle tableHeaderStyle">Block Height</th>
+					<th class="vhmiddle tableHeaderStyle">Miners Paid</th>
+					<th class="vhmiddle tableHeaderStyle">Time</th>
+					<th class="vhmiddle tableHeaderStyle">Transaction</th>
+					<th class="vhmiddle tableHeaderStyle">Effort</th>
+					<th class="vhmiddle tableHeaderStyle">Paid</th>
+					<th class="vhmiddle tableHeaderStyle">Status</th>
+					</tr>
+					</thead>
+					<tbody id="blockTableBody"></tbody>
+				</table>
+			</div>
+		</form>
+	</fieldset>
+</div>
+<br>
+<script>
+	"{{ var totalPending = parseInt('0'); }}";
+	"{{ var totalConfirmed = parseInt('0'); }}";
+	"{{ var totalPaidOut = parseInt('0'); }}";
+
+	var dataTable = $("#blockTable").DataTable({
+		"order": [[ 1, "desc" ]],
+		"columnDefs": [
+			{ "width": "100px", "targets": 0 },
+			{ "width": "100px", "targets": 1 },
+			{ "width": "100px", "targets": 2 },
+			{ "width": "100px", "targets": 3 },          
+			{ "width": "100px", "targets": 4 },
+			{ "width": "100px", "targets": 5 },
+			{ "width": "100px", "targets": 6 },
+			{ "width": "100px", "targets": 7 }
+		],
+		"pageLength": 25,
+		"pagingType": "full_numbers",
+		"lengthMenu": [ 25, 50 ]
+	});
+
+	$("#coinSelect").ready(function() {
+		updateTable("all", true);
+	});
+
+	$("#coinSelect").change(function() {
+		updateTable(this.value, true);
+	});
+
+	function updateTable(value, updateText) {
+		var options = {
+			hour12: false, year: "numeric", month: "numeric",
+			day: "numeric", hour: "2-digit", minute: "2-digit"
+		};
+		"{{ var sortedPools = Object.keys(it.stats.pools); }}";
+		"{{ sortedPools.sort(function(a, b) { return a.workerCount - b.workerCount; }); }}";
+		if(updateText && (dataTable.row)) {
+			dataTable.clear().draw(true);
+		}  
+		"{{ for(i in sortedPools) { }}";
+		"{{ var pool = sortedPools[i]; }}";
+		if(updateText) {
+			if (("all" !== value) && ("{{=pool}}" === value)) {
+				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}').toFixed(8); }}";
+				$('#tdHistoryPending').text("{{=it.stats.pools[pool].blocks.pending}}");
+				$('#tdHistoryConfirmed').text("{{=it.stats.pools[pool].blocks.confirmed}}");                            
+				$('#tdHistoryPaid').text("{{=tmpPaid}}");
+			} else {
+				"{{ var tmpPending = parseInt('{{=it.stats.pools[pool].blocks.pending}}'); }}";
+				"{{ var tmpConfirmed = parseInt('{{=it.stats.pools[pool].blocks.confirmed}}'); }}";
+				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}'); }}";
+				"{{ var totalPending = parseInt(totalPending) + parseInt(tmpPending); }}";
+				"{{ var totalConfirmed = parseInt(totalConfirmed) + parseInt(tmpConfirmed); }}";
+				"{{ var totalPaidOut = parseFloat(totalPaidOut) + parseFloat(tmpPaid); }}";
+			}
+			"{{ for(p in it.stats.pools[pool].payments) { }}";
+			"{{ var payment = it.stats.pools[pool].payments[p]; }}";
+			var effort = Math.round(parseFloat('{{=payment.shares}}' * 100).toFixed(0));
+			var effortClass = "";
+			if (effort < 100) {
+				effortClass = "effort1";
+			} else if (effort < 200) {
+				effortClass = "effort2";
+			} else if (effort < 500) {
+				effortClass = "effort3";
+			} else {
+				effortClass = "effort4";
+			}
+			if (("{{=pool}}" === value) || ("all" === value)) {
+				dataTable.row.add([
+					'<div class="vhmiddle"><span class="tableRowStyle"><img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" /> <a class="bg-light text-dark" href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a></span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle"><a class="bg-light text-dark" href="{{=it.stats.pools[pool].explorerGetBlock + payment.blkid}}" target="_blank">{{=Math.max.apply(null, payment.blocks)}}</a>&nbsp;&nbsp;<a class="bg-light text-dark" href="{{=it.stats.pools[pool].explorerGetBlockJSON + payment.blkid}}" target="_blank"><img src="/static/img/JSON.png" style="height: 25px;" /></a><span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle">{{=payment.miners}}</span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle">' + new Date(parseInt("{{=payment.time}}")).toISOString().replace(/([^T]+)T([^\.]+).*/g, '$1 $2').toUpperCase() + '</span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle"><a class="bg-light text-dark" href="{{=it.stats.pools[pool].explorerGetTX + payment.txid}}" target="_blank">{{=payment.txid}}</a></span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle"><span class=' + effortClass + '><b>' + effort + ' %</b></span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle">{{=parseFloat(payment.paid).toFixed(8)}}</span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle"><span class="badge badge-success">Paid</span></span></div>',
+				]).draw(true);
+			}
+			"{{ } }}";
+		}
+		"{{ } }}";  
+		if ("all" === value) {
+			var tmpOutVar = parseFloat("{{=totalPaidOut}}").toFixed(8);            
+			$('#tdHistoryPending').text("{{=totalPending}}");
+			$('#tdHistoryConfirmed').text("{{=totalConfirmed}}");                        
+			$('#tdHistoryPaid').text(tmpOutVar);
+		}
+	}
+</script>

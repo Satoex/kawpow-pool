@@ -1,0 +1,87 @@
+<style>
+    .highlight-top {
+      background-color: #738bdc;
+      background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
+      margin-top: -15px;
+      padding-bottom: 15px;
+    }
+
+    .highlight-blue .buttons {
+      text-align: center;
+    }
+
+    .highlight-blue .buttons .btn-primary, .highlight-blue .buttons .btn-primary:active {
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 6px;
+      color: #ebeff1;
+      box-shadow: none;
+      text-shadow: none;
+      padding: 14px 24px;
+      background: transparent;
+      transition: background-color 0.25s;
+    }
+
+    #startedHolder {
+      background: #212529;
+    }
+</style>
+
+<div class="container-fluid" style="margin-top: 36px;">
+    <div class="row justify-content-center highlight-top pt-3">
+        <div class="col-10 text-light text-center">
+            <h1 class="display-4" style="font-size:36px;"><b>Cryptocurrency Mining</b></h1>
+            <p>You may have heard about Cryptocurrency or Bitcoin mining on the news, through a friend, or even just on a random search. No matter how you heard about it, you may be asking yourself what exactly is it? Is it something that I could start
+                doing at home? Is it even worth my time? This page will give you a better understanding of what cryptocurrency mining is, and even show you how to get started!<br /></p>
+        </div>
+    </div><br>
+    <div class="row justify-content-center bg-faded">
+        <div class="col-10">
+            <h1 class="display-4" style="font-size:24px;">So, What Is It?</h1>
+                <p class="mb-0"><em>"Cryptocurrency mining is the process by which transactions are verified and added to the public ledger, known as the block chain, and the means through which new coins are released.&nbsp; Anyone with access to the internet
+                    and suitable hardware can participate in mining.&nbsp; The mining process involves compiling recent transactions into blocks and trying to solve a computationally difficult puzzle.&nbsp; The participant who first solves the
+                    puzzle gets to place the next block on the block chain and claim the rewards.&nbsp; The rewards, which&nbsp;incentivize mining, are both the transaction fees associated with the transactions compiled in the block as well as
+                    newly released coins."</em><br /></p>
+        </div>
+    </div><br>
+    <div class="row justify-content-center bg-faded">
+       <div class="col-10">
+            <h1 class="display-4" style="font-size:24px;">Can I Mine with My Computer?<br /></h1>
+            <p>Anyone can mine; the only limiting factor being the hardware which you wish to mine from. If you have a GPU (Graphics Processing Unit) or a compatable CPU (Central Processing Unit), and mining software which supports your GPU/CPU as well as the algorithm of the coin you are trying to mine then
+                you should have no issues! Don't know what mining software or algorithms are? Don't worry, we will cover that shortly!<br /></p>
+        </div>
+    </div><br>
+    <div class="row justify-content-center bg-faded">
+        <div class="col-10">
+            <h1 class="display-4" style="font-size:24px;">What Is Mining Software?<br /></h1>
+            <p>Mining software, are applications, usually command line, that allows users to connect to the block chain or pool, receive work, and use hardware to solve work given. There are two very popular choices when it comes to software, <span style="color:#76B900;">CCMiner, Suprminer, TRex
+                for Nvidia GPU's</span>, <span style="color:#E00031;"> Wildrig, SGMiner, TeamRedMiner for AMD GPU's</span>, <span style="color:#6DDCFF;"> CPUMINER-MULTI, CPUMINER-OPT for CPU's</span>. A quick search online will give you more information about these programs, though look carefully, there could be malicious content; for safety we recommend find the source code for the
+                project before downloading.<br /></p>
+        </div>
+    </div><br>
+    <div class="row justify-content-center bg-faded">
+        <div class="col-10">
+            <h1 class="display-4" style="font-size:24px;">What Is an Algorithm?<br /></h1>
+            <p>An algorithm is defined as <em>"a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer"</em>. &nbsp;Cryptocurrencies miners use cryptographic algorithms such as SHA-2, Scrypt,
+                and Equihash to generate hashes for the block chain. Each algorithm has positive and negatives for each given hardware setup, so researching your hardware prior to chosing a coin to mine, can make your venture much more profitable.<br /></p>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-faded pb-4">
+        <div class="col-10 text-light">
+            <h1 class="display-4" style="font-size:24px;">How Do I Start?<br /></h1>
+            <ul class="list-group text-dark">
+                <li class="list-group-item">Well firstly, you need to pick a mining software which is compatable with your system. While I will not be providing links to any mining software, if you refer back to popular choices I mentioned above, a quick online search will
+                    show you the software needed.<br /></li>
+                <li class="list-group-item">Pick a coin you wish to mine. Remember each coin has an algorithm which needs to be accounted for, as you will need to verify that your mining software supports it. There is a <strong>README</strong> file usually included with most mining software,
+                    and inside you can see each supported algorithm, as well as other useful options.<br /></li>
+                <li class="list-group-item">After you decided which coin, you need to get a wallet. Each coin provides it's own wallet software which you can download from the coin's website or project repository. Download the wallet, open it, let it sync (this could take
+                    a while), once it's syncs, find your wallet address and hold it for the next step.</li>
+                <li class="list-group-item">Inside of the folder of your mining software application, create a <em>.bat</em> or <em>.cmd</em> file. Edit the file and use our configuration generator on the <a href="/getting_started">Getting Started</a> page to generate a personalized configuration, copy and paste the results
+                    into your file. Save it, and you should now be able to double click the file to start the miner. Good luck mining!</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<script>
+  $("[data-toggle=tooltip").tooltip();
+</script>

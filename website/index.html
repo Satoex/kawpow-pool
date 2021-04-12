@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>   
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Page Description -->
+	{{ if ((it.portalConfig.pagedesc !== "undefined") & (it.portalConfig.pagedesc !== "")) { }}
+		<meta name="description" content="{{=it.portalConfig.pagedesc}}" />
+	{{ } else { }}
+		<meta name="description" content="An KawPoW algorithm mining pool - https://github.com/DirtyHarryDev/nomp-kawpow-pool" />    
+	{{ } }}
+	<!-- Page Keywords -->
+	{{ if ((it.portalConfig.pagekeywds !== "undefined") & (it.portalConfig.pagekeywds !== "")) { }}
+		<meta name="keywords" content="{{=it.portalConfig.pagekeywds}}" />
+	{{ } else { }}
+		<meta name="keywords" content="KawPoW, NOMP, node-open-mining-portal, pool, mining pool, mining, cryptocurrency, crypto, ravencoin, satocoin" />
+	{{ } }}
+	<!-- Page Author -->
+	{{ if ((it.portalConfig.pageauthor !== "undefined") & (it.portalConfig.pageauthor !== "")) { }}
+		<meta name="author" content="root" />
+	{{ } else { }}
+		<meta name="author" content="root" />   
+	{{ } }}
+	<!-- Page Title -->
+	{{ if ((it.portalConfig.pagetitle !== "undefined") & (it.portalConfig.pagetitle !== "")) { }}
+		<title>{{=it.portalConfig.pagetitle}}</title>
+	{{ } else { }}
+		<title>KawPoW Mining Pool - https://github.com/DirtyHarryDev/nomp-kawpow-pool</title>
+	{{ } }}
+	<link rel="icon" type="image/png" href="/static/img/favicon.png" />
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' crossorigin="anonymous" />           
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+        <link rel="stylesheet" href="/static/css/adminlte.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>     
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>     
+        <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" crossorigin="anonymous"></script>  
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael.js" crossorigin="anonymous"></script>
+        <script src="/static/js/adminlte.min.js"></script>
+        <script src="/static/justgage.js"></script>
+        <script src="/static/main.js"></script>
+        <script src="/static/stat_tracker.js"></script>
+        {{=it.matomoCode}}
+</head>
+<style>
+#wrapper {
+	padding-left: 40px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+#wrapper.toggled {
+	padding-left: 250px;
+}
+#sidebar-wrapper {
+	overflow-x: hidden;
+	z-index: 1000;
+	position: fixed;
+	left: 250px;
+	width: 44px;
+	height: 100%;
+	margin-left: -250px;
+	overflow-y: auto;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+#wrapper.toggled #sidebar-wrapper {
+	width: 250px;
+}
+#page-content-wrapper {
+	width: 100%;
+	position: absolute;
+	padding: 15px;
+}
+#wrapper.toggled #page-content-wrapper {
+	position: absolute;
+	margin-right: -250px;
+}
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebar-nav li {
+	line-height: 40px;
+}
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: #f0f0f0;
+}
+.sidebar-nav li a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.2);
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
+.sidebar-nav>.sidebar-brand {
+	height: 65px;
+	font-size: 18px;
+	line-height: 60px;
+}
+.sidebar-nav>.sidebar-brand a {
+	color: #999999;
+}
+.sidebar-nav>.sidebar-brand a:hover {
+	color: #fff;
+	background: none;
+}
+.sidebar-icon {
+	vertical-align: middle;
+	align-content: center;
+	text-align: center;
+	font-size: 25px;
+	padding-left: 7.5px;
+	padding-right: 7.5px;
+}
+@media(min-width:768px) {
+	#wrapper {
+		padding-left: 40px;
+	}
+	#wrapper.toggled {
+		padding-left: 250px;
+	}
+	#sidebar-wrapper {
+		width: 44px;
+	}
+	#wrapper.toggled #sidebar-wrapper {
+		width: 250px;
+	}
+	#page-content-wrapper {
+		padding: 20px;
+		position: relative;
+	}
+	#wrapper.toggled #page-content-wrapper {
+		position: relative;
+		margin-right: 0;
+	}
+}
+footer {
+	text-align: center;
+	color: #b3b3b3;
+	text-decoration: none;
+	font-size: 0.8em;
+	padding: 15px;
+	line-height: 24px;
+}
+footer a {
+	color: #1AC4BA;
+	text-decoration: none;
+}
+footer iframe {
+	vertical-align: middle;
+}
+.footer_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.icon-blue {
+  color: #36a3f7;
+}
+</style>
+
+<body>
+	{{=it.livezillaCode}}
+	<header>
+		<nav id="topNavBar" class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap px-0" style="height: 50px;">
+		{{ if ((it.portalConfig.poollogo !== "undefined") & (it.portalConfig.poollogo !== "")) { }}
+			<span style="font-size: 18px; color: white;">&nbsp;<img src="/static/img/poollogo.png" height="32px" width="32px" />&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
+		{{ } else { }}
+			<span style="font-size: 18px; color: white;">&nbsp;&nbsp;<b>{{=it.portalConfig.poolname}}</b></span>
+		{{ } }}
+		<span style="font-size: 18px; color: white;"><i>{{=it.portalConfig.discord}}<a href="{{=it.portalConfig.discordlink}}" target="_blank"><img src="/static/img/discord.png" height="32px" />&nbsp;&nbsp;&nbsp;&nbsp;</a></i></span>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<div id="sidebar-wrapper" class="bg-dark toggled">
+			<ul class="sidebar-nav" style="margin-top: 50px;">
+				<li>
+					<a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars sidebar-icon"></i>&nbsp;&nbsp;Toggle Menu</a>
+				</li>
+				<li>
+					<a href="/"><i class="fas fa-home sidebar-icon text-success"></i>&nbsp;Home</a>
+				</li>
+				<li>
+					<a href="/news"><i class="fas fa-newspaper sidebar-icon icon-blue"></i>&nbsp;News</a>
+				</li>
+				<li>
+					<a href="/getting_started"><i class="fa fa-user-plus sidebar-icon icon-blue"></i>Add Miner</a>
+				</li>
+				<li>
+					<a href="/dashboard"><i class="fas fa-tachometer-alt sidebar-icon icon-blue"></i>&nbsp;Dashboard</a>
+				</li>
+				<li>
+					<a class="sidebar-link" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-swimmer sidebar-icon icon-blue"></i>&nbsp;Pools</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu">
+						<li>
+							<a href="/pools">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-swimming-pool sidebar-icon icon-blue"></i>All Pools </a>
+						</li>                     
+						{{ for(var pool in it.stats.pools) { }}
+						<li>
+							{{ var total = 0.0; }}
+							{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+							{{ for (var r in rewardRecipients) { }}
+							{{ total += rewardRecipients[r]; }}
+							{{ } }}
+							<a class="bg-dark text-light pl-3" href="/stats/{{=it.stats.pools[pool].name}}">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} ({{=total}}% fee)</a>
+						</li>
+						{{ } }}
+						<p></p>
+					</ul>
+				</li>
+				<li>
+					<a href="/workers"><i class="fa fa-users sidebar-icon icon-blue"></i>&nbsp;Workers</a>
+				</li>
+				<li>
+					<a href="/blocks"><i class="fas fa-cash-register sidebar-icon icon-blue"></i>&nbsp;Payments</a>
+				</li>
+				<li>
+					<a href="/blocks_found"><i class="fas fa-cubes sidebar-icon icon-blue"></i>&nbsp;Blocks</a>
+				</li>
+				<li>
+					<a class="sidebar-link" href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false"><i class="fas fa-project-diagram sidebar-icon icon-blue"></i>&nbsp;Block Explorers</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu2">
+						{{ for(var pool in it.stats.pools) { }}
+							<li>
+								<a class="bg-dark text-light pl-3" href="{{=it.poolConfigs[pool].coin.explorer}}" target="_blank">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a>
+							</li>
+						{{ } }}
+						<p></p>
+					</ul>
+				</li>
+				<li>
+					<a class="sidebar-link" href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false"><i class="fas fa-robot sidebar-icon icon-blue"></i>Miners</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu7">
+						<li>
+							<a href="https://github.com/trexminer/T-Rex/releases" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/download.png" style="height: 24px;width: 24px;" alt="icon" />&nbsp;T-Rex</a>
+						</li>
+						<li>
+							<a href="https://github.com/todxx/teamredminer/releases" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/download.png" style="height: 24px;width: 24px;" alt="icon" />&nbsp;TeamRedMiner</a>
+						</li>
+						<li>
+							<a href="https://www.nicehash.com/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.nicehash.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;NiceHash</a>
+						</li>
+						<li>
+							<a href="https://www.miningrigrentals.com/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.miningrigrentals.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;MiningRigRentals</a>
+						</li>
+						<p></p>
+					</ul>
+				</li>
+				<li>
+					<a class="sidebar-link" href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false">&nbsp;<i class="fas fa-wallet sidebar-icon icon-blue"></i>&nbsp;Wallets</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu6">
+						{{ for(var pool in it.stats.pools) { }}
+						<li>
+							<a class="bg-dark text-light pl-3" href="{{=it.poolConfigs[pool].coin.wallet}}" target="_blank">&nbsp;&nbsp;<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" alt="icon" /> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a>
+						</li>
+						{{ } }}
+						<p></p>
+					</ul>
+				</li>
+				<li>
+					<a class="sidebar-link" href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false"><i class="fas fa-link sidebar-icon icon-blue"></i>&nbsp;Links</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu4">
+						<li>
+							<a href="https://pool.alphax.pro/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/favicon.png" style="height: 24px;width: 24px;" alt="icon" />&nbsp;AlphaX Pool</a>
+						</li>
+						<li>
+							<a href="https://discord.com/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/discordlogo.png" style="height: 24px;width: 24px;" alt="icon" />&nbsp;Discord</a>
+						</li>
+						<li>
+							<a href="https://www.nicehash.com/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.nicehash.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;NiceHash</a>
+						</li>
+						<li>
+							<a href="https://www.miningrigrentals.com/" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="//www.miningrigrentals.com/favicon.ico" style="height: 24px;width: 24px;" alt="icon" />&nbsp;MiningRigRentals</a>
+						</li>
+						<p></p>
+					</ul>
+				</li>
+				<li>
+					<a href="/learn_more">&nbsp;<i class="fas fa-question-circle sidebar-icon icon-blue"></i>&nbsp;Help</a>
+				</li>
+			</ul>
+		</div>
+		<div class="page-content-wrapper px-0">
+			<div class="container-fluid px-0 pt-4">
+				<main id="mainContent">{{=it.page}}</main>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="footer_container">
+			<div>
+			<!-- BTC Donations -->
+			{{ if ((it.portalConfig.btcdonations !== "undefined") & (it.portalConfig.btcdonations !== "")) { }}
+				<span>BTC Donations: {{=it.portalConfig.btcdonations}}</span><br />
+			{{ } else { }}
+				<span>BTC Donations: 1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt</span><br />	    
+			{{ } }}
+			<!-- LTC Donations -->
+			{{ if ((it.portalConfig.ltcdonations !== "undefined") & (it.portalConfig.ltcdonations !== "")) { }}
+				<span>LTC Donations: {{=it.portalConfig.ltcdonations}}</span><br />
+			{{ } else { }}
+				<span>LTC Donations: LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz</span><br />
+			{{ } }}
+			<!-- RVN Donations -->
+			{{ if ((it.portalConfig.rvndonations !== "undefined") & (it.portalConfig.rvndonations !== "")) { }}
+				<span>RVN Donations: {{=it.portalConfig.rvndonations}}</span><br />
+			{{ } else { }}
+				<span>RVN Donations: RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk</span><br />
+			{{ } }}
+			</div>
+			<br>
+			<span>Powered by <a href="https://github.com/DirtyHarryDev/nomp-kawpow-pool" >Dirty Harry KawPoW Pool</a></span>
+			<div id="communityFooter">
+				<iframe src="//ghbtns.com/github-btn.html?user=DirtyHarryDev&repo=nomp-kawpow-pool&type=watch&count=true"
+                            	allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+			</div>
+		</div>
+	</footer>
+</body>
+<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+		$('#homeSubmenu').collapse('hide');
+		$('#homeSubmenu2').collapse('hide');
+		$('#homeSubmenu4').collapse('hide');
+		$('#homeSubmenu6').collapse('hide');
+		$('#homeSubmenu7').collapse('hide');
+	});
+	$(".sidebar-link").click(function(e) {
+		e.preventDefault();
+		if(!$("#wrapper").hasClass("toggled")) {
+			$("#wrapper").toggleClass("toggled");
+		}
+	});
+</script>
+</html>
