@@ -27,7 +27,6 @@
     },
 
     "ports": {
-    "ports": {
 	"10008": {
             "diff": 0.05,
     	    "varDiff": {
