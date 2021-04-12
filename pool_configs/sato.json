@@ -86,7 +86,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 3333,
         "disableTransactions": true
     },
 
@@ -96,7 +96,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "rvn",
+        "database": "sato",
         "checkPassword": true,
         "autoCreateWorker": false
     },
@@ -106,7 +106,7 @@
         "host": "127.0.0.1",
         "user": "",
         "pass": "",
-        "database": "rvn",
+        "database": "sato",
         "authMechanism": "DEFAULT"
     }
 
