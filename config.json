@@ -1,5 +1,4 @@
 {
-    
     "poolname": "KawPoW Coins Pool",
     
     "devmode": false,
@@ -11,14 +10,15 @@
     "ipv4bits": 16,
     "ipv6bits": 16,
     
-     "defaultCoin": "ravencoin",
+    "defaultCoin": "ravencoin",
     
-    "poollogo": "https://github.com/DirtyHarryDev/nomp-kawpow-pool/blob/master/website/static/img/poollogo.png",
+    "poollogo": "/website/static/img/poollogo.png",
     
-    "discordtwitterfacebook": "Join our #mining channel on Discord: <a href='https://discord.gg/vzcbVNW' target='_blank'>https://discord.gg/xmvHKBXZZg</a>",
+    "discord": "Join our #mining channel on Discord: ",
+    "discordlink": "https://discord.gg/vzcbVNW",
     
     "pagetitle": "KawPoW Algorithm Pool - 0.5% Fees Promo - Run by professionals",
-    "pageauthor": "My Name Is...",
+    "pageauthor": "Dirty Harry",
     "pagedesc": "A reliable, low fee, easy to use mining pool for KawPoW algorithm coins! Get started mining today!",
     "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Ravencoin,Zelantus,Sato,Easy,Simple,How,To",
 
@@ -41,7 +41,7 @@
 
     "defaultPoolConfigs": {
         "blockRefreshInterval": 400,
-        "jobRebroadcastTimeout": 30,
+        "jobRebroadcastTimeout": 20,
         "connectionTimeout": 600,
         "emitInvalidBlockHashes": false,
         "validateWorkerUsername": true,
@@ -64,14 +64,14 @@
         "sslenabled": false,
         "sslforced": false,
         "host": "0.0.0.0",
-        "port": 80,
+        "port": 3001,
         "sslport": 443,
         "sslkey": "/home/pool/nomp-kawpow-pool/certs/privkey.pem",
         "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
-        "stratumHost": "192.168.0.200",
+        "stratumHost": "kawpow.alphax.pro",
         "stats": {
-            "updateInterval": 15,
-            "historicalRetention": 43200,
+            "updateInterval": 30,
+            "historicalRetention": 28800,
             "hashrateWindow": 600
         },
         "adminCenter": {

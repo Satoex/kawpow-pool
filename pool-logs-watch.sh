@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ""
-echo "KawPoWNOMP Watching Logs..."
+echo "KawPoW Pool Start Watching Logs..."
 echo ""
 
 source ~/.bashrc
@@ -24,7 +24,7 @@ else
 fi
 
 echo ""
-echo "Done!"
+echo "Starting Watch Logs!"
 echo ""
 
 exit 0
