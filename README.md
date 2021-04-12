@@ -4,24 +4,24 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
 -------
 ### Screenshots
 #### Home<br />
-![Home](https://raw.githubusercontent.com/EasyX-Community/EasyNOMP/master/docs/screenshots/home.png)
+![Home](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/home.png)
 
 #### Pool Stats<br />
-![Pool Stats](https://raw.githubusercontent.com/EasyX-Community/EasyNOMP/master/docs/screenshots/poolstats.png)<br /><br />
+![Pool Stats](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/poolstats.png)<br /><br />
 
 #### Miner Stats<br />
-![Miner Stats](https://raw.githubusercontent.com/EasyX-Community/EasyNOMP/master/docs/screenshots/minerstats.png)<br /><br />
+![Miner Stats](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/minerstats.png)<br /><br />
 
-#### Block Explorer<br />
-![Block Explorer](https://raw.githubusercontent.com/EasyX-Community/EasyNOMP/master/docs/screenshots/blockexplorer.png)<br /><br />
+#### Payments<br />
+![Payments](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/payments.png)<br /><br />
 
 -------
 ### Node Open Mining Portal consists of 3 main modules:
 | Project | Link |
 | ------------- | ------------- |
 | [KawPoWNOMP](https://github.com/DirtyHarryDev/nomp-kawpow-pool) | https://github.com/DirtyHarryDev/nomp-kawpow-pool|
-| [Stratum Pool](https://github.com/RavenCommunity/kawpow-stratum-pool) | https://github.com/RavenCommunity/kawpow-stratum-pool |
-| [Node Multihashing](https://github.com/EasyX-Community/node-multi-hashing) | https://github.com/EasyX-Community/node-multi-hashing |
+| [Stratum Pool](https://github.com/DirtyHarryDev/kawpow-stratum-pool) | https://github.com/DirtyHarryDev/kawpow-stratum-pool |
+| [Node Multihashing](https://github.com/DirtyHarryDev/node-multi-hashing) | https://github.com/DirtyHarryDev/node-multi-hashing |
 
 -------
 ### Requirements
@@ -134,8 +134,8 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
     },
 
     "defaultPoolConfigs": {
-        "blockRefreshInterval": 1000,
-        "jobRebroadcastTimeout": 55,
+        "blockRefreshInterval": 400,
+        "jobRebroadcastTimeout": 30,
         "connectionTimeout": 600,
         "emitInvalidBlockHashes": false,
         "validateWorkerUsername": true,
@@ -164,8 +164,8 @@ Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
         "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
         "stratumHost": "192.168.0.200",
         "stats": {
-            "updateInterval": 5,
-            "historicalRetention": 43200,
+            "updateInterval": 15,
+            "historicalRetention": 28800,
             "hashrateWindow": 600
         },
         "adminCenter": {
@@ -280,10 +280,10 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 
     "ports": {
 	"10008": {
-            "diff": 0.04,
+            "diff": 0.05,
     	    "varDiff": {
-    	        "minDiff": 0.02,
-    	        "maxDiff": 8,
+    	        "minDiff": 0.025,
+    	        "maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -291,10 +291,10 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
     	    }
         },
         "10016": {
-	    "diff": 2,
+	    "diff": 0.10,
             "varDiff": {
-                "minDiff": 1,
-                "maxDiff": 16,
+                "minDiff": 0.05,
+                "maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -302,10 +302,10 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
             }
         },
         "10032": {
-	    "diff": 2000,
+	    "diff": 0.20,
             "varDiff": {
-    		"minDiff": 1000,
-    		"maxDiff": 9000,
+    		"minDiff": 0.10,
+    		"maxDiff": 1024,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -316,7 +316,7 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 	    "diff": 1024000000,
             "varDiff": {
                 "minDiff": 1024000000,
-                "maxDiff": 2048000000,
+                "maxDiff": 20480000000,
     	        "targetTime": 10,
     	        "retargetTime": 60,
     	        "variancePercent": 30,
@@ -337,7 +337,7 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 8767,
         "disableTransactions": true
     },
 
