@@ -28,16 +28,16 @@ module.exports = function () {
 	var portalStats = portalApi.stats;
 	var logSystem = 'Website';
 	var pageFiles = {
-		'home.html': '',				// home page
 		'index.html': 'index',				// index page
+		'home.html': '',				// home page
 		'getting_started.html': 'getting_started',	// getting started page
 		'dashboard.html': 'dashboard',                  // dashboard page
 		'pools.html': 'pools',                          // all pool stats page
 		'stats.html': 'stats',                          // pool stats pages
 		'workers.html': 'workers',                      // all worker stats pages
 		'blocks.html': 'blocks',                        // payment history
+		'blocks_found.html': 'blocks_found',            // blocks history
 		'learn_more.html': 'learn_more',                // help
-		'api.html': 'api',                              // api
 		'miner_stats.html': 'miner_stats',              // miner stats page
 		'pool_stats.html': 'pool_stats'                 // pool page
 	};

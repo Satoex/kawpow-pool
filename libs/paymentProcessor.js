@@ -3,14 +3,9 @@ var redis = require('redis');
 var async = require('async');
 var Stratum = require('stratum-pool');
 var util = require('stratum-pool/lib/util.js');
-
 const BigNumber = require('bignumber.js');
 const loggerFactory = require('./logger.js');
-
 JSON.minify = JSON.minify || require("node-json-minify");
-
-// GLOBAL VARIABLES
-
 var portalConfig = JSON.parse(fs.readFileSync("config.json", {encoding: 'utf8'}));
 var poolConfigs = [];
 
@@ -52,7 +47,6 @@ module.exports = function() {
 		}
 	});
 };
-
 function getCoinPayInterval(coin) {
 	const logger = loggerFactory.getLogger('PaymentProcessor-gCPI', coin);
 	var poolOptions = poolConfigs[coin];
@@ -67,7 +61,6 @@ function getCoinPayInterval(coin) {
 	}
 	return payInterval;   
 };
-
 function getCoinPayMinimum(coin) {
 	const logger = loggerFactory.getLogger('PaymentProcessor-GCPM', coin);  
 	var poolOptions = poolConfigs[coin];
@@ -80,7 +73,6 @@ function getCoinPayMinimum(coin) {
 	}
 	return minimumPayment;
 };
-
 function getCoinPrecision(coin) {
 	const logger = loggerFactory.getLogger('PaymentProcessor-GCPR', coin);
 	var poolOptions = poolConfigs[coin];
@@ -88,7 +80,6 @@ function getCoinPrecision(coin) {
 	var coinPrecision = processingConfig.coinPrecision || 8;
 	return coinPrecision;
 };
-
 function getTotalFees(coin) {
 	const logger = loggerFactory.getLogger('PaymentProcessor-GTF', coin);
 	var poolOptions = poolConfigs[coin];
@@ -102,7 +93,6 @@ function getTotalFees(coin) {
 	}
 	return total;   
 };
-
 function SetupForPool(poolOptions, setupFinished) {
 	var coin = poolOptions.coin.name;
 	const logger = loggerFactory.getLogger('PaymentProcessor', coin);
@@ -229,13 +219,11 @@ function SetupForPool(poolOptions, setupFinished) {
 			);
 		}
 	);
-}
-    
+}    
 var stats_interval = 58 * 1000;
 var statsInterval = setInterval(function() {
 	cacheNetworkStats();
 }, stats_interval);
-
 var processPayments = function() {
 	var startPaymentProcess = Date.now();
 	var timeSpentRPC = 0;
@@ -358,11 +346,13 @@ var processPayments = function() {
 				callback('WATERFALL> Check finished - daemon rpc error with batch gettransactions %s', JSON.stringify(error));
 				return;
 			}
-			var addressAccount;
+			var addressAccount = "";
 			txDetails.forEach(function(tx, i) {
 				if (i === txDetails.length - 1) {
-					addressAccount = tx.result || tx.address;
-					logger.warn("WATERFALL> Could not retrieve account for %s from RPC (no tx.result or tx.address field) %s", poolOptions.address, JSON.stringify(tx));
+					if (tx.result && tx.result.toString().length > 0) {
+						addressAccount = tx.result.toString();
+						logger.warn("WATERFALL> Could not retrieve account for %s from RPC (no tx.result or tx.address field) %s", poolOptions.address, JSON.stringify(tx));
+					}
 					return;
 				}
 				var round = rounds[i];
@@ -644,7 +634,6 @@ var processPayments = function() {
 	};
 	trySend(new BigNumber(0));
 },
-
 function(workers, rounds, paymentsUpdate, callback) {
 	var totalPaid = new BigNumber(0);
 	var balanceUpdateCommands = [];
@@ -766,7 +755,6 @@ function(workers, rounds, paymentsUpdate, callback) {
 		callback("PP> Redis updated successfully after payouts");
 	});
 }],
-
 function(wfresult) {
 	logger.debug('PP> WATERFALL RESULT: %s', wfresult);
 	var paymentProcessTime = Date.now() - startPaymentProcess;
@@ -776,7 +764,6 @@ function(wfresult) {
 	timeSpentRPC);
 	});
 };
-
 function checkForDuplicateBlockHeight(rounds, height) {
 	var count = 0;
 	for (var i = 0; i < rounds.length; i++) {
@@ -785,7 +772,6 @@ function checkForDuplicateBlockHeight(rounds, height) {
 	}
 	return count > 1;
 }
-
 var getProperAddress = function(address) {
 	if (address.length === 40) {
 		var res = address.split(".")

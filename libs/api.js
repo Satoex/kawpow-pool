@@ -15,6 +15,7 @@ module.exports = function(portalConfig, poolConfigs) {
 			res.header('Content-Type', 'application/json');
 			res.end(portalStats.statsString);
 			return;
+
 			case 'getblocksstats':
 			portalStats.getBlocks(function(data) {
 				res.header('Content-Type', 'application/json');

@@ -29,5 +29,4 @@ var listener = module.exports = function listener(host, port) {
 	});
 }
 };
-
 listener.prototype.__proto__ = events.EventEmitter.prototype;
