@@ -64,11 +64,11 @@
         "sslenabled": false,
         "sslforced": false,
         "host": "0.0.0.0",
-        "port": 3001,
+        "port": 80,
         "sslport": 443,
         "sslkey": "/home/pool/nomp-kawpow-pool/certs/privkey.pem",
         "sslcert": "/home/pool/nomp-kawpow-pool/certs/fullchain.pem",
-        "stratumHost": "kawpow.alphax.pro",
+        "stratumHost": "192.168.0.200",
         "stats": {
             "updateInterval": 30,
             "historicalRetention": 28800,
