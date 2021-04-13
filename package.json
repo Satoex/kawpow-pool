@@ -41,10 +41,10 @@
         "asn1": "^0.2.4",
         "async": "^2.6.3",
         "bcrypt-pbkdf": "^1.0.2",
-        "bignum": "^0.13.0",
+        "bignum": "^0.13.1",
         "bignumber.js": "^6.0.0",
         "body-parser": "^1.18.3",
-        "chart.js": "^2.7.3",
+        "chart.js": "^2.9.4",
         "chartjs-plugin-zoom": "^0.6.6",
         "cluster": "^0.7.7",
         "color-name": "^1.1.4",
@@ -70,8 +70,8 @@
         "node-multi-hashing": "^0.0.1",
         "node-watch": "^0.5.9",
         "nonce": "^1.0.4",
-        "redis": "^2.7.1",
-        "redis-commands": "^1.4.0",
+        "redis": "^2.8.0",
+        "redis-commands": "^1.7.0",
         "request": "^2.88.0",
         "safe-buffer": "^5.1.2",
         "semver": "^5.7.1",
@@ -84,6 +84,6 @@
         "winston-transport": "^4.3.0"
     },
     "engines": {
-        "node": ">=8.1.4"
+        "node": ">=8.17.0"
     }
 }
