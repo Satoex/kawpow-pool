@@ -20,7 +20,7 @@ echo ""
 if [ "${1}" != "" ]; then
   watch -n1 -- "sudo tail -n1000 ~/.pm2/logs/pool-out.log | grep -i -a \"${1}\"" ;
 else
-  ~/.nvm/versions/node/v8.1.4/bin/pm2 logs pool ;
+  ~/.nvm/versions/node/v8.17.0/bin/pm2 logs pool ;
 fi
 
 echo ""
