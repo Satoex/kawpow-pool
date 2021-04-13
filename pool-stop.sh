@@ -17,7 +17,7 @@ echo "Current working dir : $PWD"
 echo "Script location path (dir) : $BASEDIR"
 echo ""
 
-~/.nvm/versions/node/v8.1.4/bin/pm2 stop pool
+~/.nvm/versions/node/v8.17.0/bin/pm2 stop pool
 
 echo ""
 echo "KawPow Pool Stopped!"
