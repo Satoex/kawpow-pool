@@ -4,16 +4,16 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
 -------
 ### Screenshots
 #### Home<br />
-![Home](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/home.png)
+![Home](https://raw.githubusercontent.com/Satoex/kawpow-pool/master/docs/frontend/home.png)
 
 #### Pool Stats<br />
-![Pool Stats](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/poolstats.png)<br /><br />
+![Pool Stats](https://raw.githubusercontent.com/Satoex/kawpow-pool/master/docs/frontend/poolstats.png)<br /><br />
 
 #### Miner Stats<br />
-![Miner Stats](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/minerstats.png)<br /><br />
+![Miner Stats](https://raw.githubusercontent.com/Satoex/kawpow-pool/master/docs/frontend/minerstats.png)<br /><br />
 
 #### Payments<br />
-![Payments](https://raw.githubusercontent.com/DirtyHarryDev/nomp-kawpow-pool/master/docs/frontend/payments.png)<br /><br />
+![Payments](https://raw.githubusercontent.com/Satoex/kawpow-pool/master/docs/frontend/payments.png)<br /><br />
 
 -------
 ### Node Open Mining Portal consists of 3 main modules:
