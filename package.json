@@ -63,7 +63,7 @@
         "ls": "^0.2.1",
         "mime-types": "^2.1.21",
         "moment": "^2.23.0",
-        "multi-hashing": "git://github.com/Satoex/node-multi-hashing.git",
+        "multi-hashing": "https://github.com/FlareHashr/node-multi-hashing.git",
         "mysql": "^2.16.0",
         "newrelic": "^5.1.0",
         "node-json-minify": "^1.0.0",
@@ -78,7 +78,7 @@
         "sha3": "^2.1.4",
         "sma": "^0.1.1",
         "sshpk": "^1.15.2",
-        "stratum-pool": "git+https://github.com/Satoex/kawpow-stratum.git",
+        "stratum-pool": "https://github.com/FlareHashr/kawpow-stratum-pool.git",
         "winston": "^3.2.1",
         "winston-daily-rotate-file": "^3.5.1",
         "winston-transport": "^4.3.0"
