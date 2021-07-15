@@ -79,7 +79,7 @@ Other helpfull commands.
     sudo apt install git -y
     cd ~
     git config --global http.https://gopkg.in.followRedirects true
-    git clone https://github.com/DirtyHarryDev/nomp-kawpow-pool.git
+    git clone https://github.com/Satoex/kawpow-pool.git
     cd nomp-kawpow-pool/
     ./install.sh
 
@@ -88,7 +88,7 @@ Other helpfull commands.
 
 Change "stratumHost": "192.168.0.200", to your IP or DNS in file config.json:
 
-    cd ~/nomp-kawpow-pool
+    cd ~/kawpow-pool
     nano config.json
 
 ```javascript
