@@ -19,9 +19,9 @@ Highly Efficient mining pool for Coins based on KawPoW algo!
 ### Node Open Mining Portal consists of 3 main modules:
 | Project | Link |
 | ------------- | ------------- |
-| [KawPoWNOMP](https://github.com/DirtyHarryDev/nomp-kawpow-pool) | https://github.com/DirtyHarryDev/nomp-kawpow-pool|
-| [Stratum Pool](https://github.com/DirtyHarryDev/kawpow-stratum-pool) | https://github.com/DirtyHarryDev/kawpow-stratum-pool |
-| [Node Multihashing](https://github.com/DirtyHarryDev/node-multi-hashing) | https://github.com/DirtyHarryDev/node-multi-hashing |
+| [KawPoWNOMP](https://github.com/Satoex/kawpow-pool) | https://github.com/Satoex/kawpow-pool|
+| [Stratum Pool](https://github.com/Satoex/kawpow-stratum-pool) | https://github.com/Satoex/kawpow-stratum-pool |
+| [Node Multihashing](https://github.com/Satoex/node-multi-hashing) | https://github.com/Satoex/node-multi-hashing |
 
 -------
 ### Requirements
@@ -80,7 +80,7 @@ Other helpfull commands.
     cd ~
     git config --global http.https://gopkg.in.followRedirects true
     git clone https://github.com/Satoex/kawpow-pool.git
-    cd nomp-kawpow-pool/
+    cd kawpow-pool/
     ./install.sh
 
 -------
