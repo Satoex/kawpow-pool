@@ -78,7 +78,7 @@
         "sha3": "^2.1.4",
         "sma": "^0.1.1",
         "sshpk": "^1.15.2",
-        "stratum-pool": "git+https://github.com/Satoex/kawpow-stratum-pool.git",
+        "stratum-pool": "git+https://github.com/Satoex/kawpow-stratum.git",
         "winston": "^3.2.1",
         "winston-daily-rotate-file": "^3.5.1",
         "winston-transport": "^4.3.0"
